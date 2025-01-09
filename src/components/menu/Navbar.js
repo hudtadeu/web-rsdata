@@ -31,6 +31,7 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth }) => {
 
   const menuItems = [
     { text: "Início", icon: faHome, link: "/" },
+    { text: "Indicadores", icon: faClipboardList, link: "/indicadores" },
     { text: "Conformidade Legal", icon: faGavel, link: "/conformidade-legal" },
     { text: "GPO", icon: faCogs, link: "/gpo" },
     { text: "Gestão de EPI's", icon: faClipboardList, link: "/gestao-epis" },
