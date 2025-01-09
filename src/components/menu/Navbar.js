@@ -23,6 +23,7 @@ import {
   faClipboardList,
   faSignOutAlt,
   faChevronDown,
+  faBarChart,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
@@ -31,7 +32,7 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu }) => {
 
   const menuItems = [
     { text: "Início", icon: faHome, link: "/", showChevron: false },
-    { text: "Indicadores", icon: faClipboardList, link: "/indicadores", showChevron: false },
+    { text: "Indicadores", icon: faBarChart, link: "/indicadores", showChevron: false },
     { text: "Conformidade Legal", icon: faGavel, link: "/conformidade-legal", showChevron: true },
     { text: "GPO", icon: faCogs, link: "/gpo", showChevron: true },
     { text: "Gestão de EPI's", icon: faClipboardList, link: "/gestao-epis", showChevron: true },
