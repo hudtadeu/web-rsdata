@@ -150,11 +150,11 @@ const Indicadores = () => {
     plotOptions: {
       radialBar: {
         hollow: {
-          size: "50%", // Tamanho do espaço interno vazio
+          size: "50%", 
         },
         track: {
-          background: "#e0e0e0", // Cor do track (fundo da barra)
-          strokeWidth: "100%", // Largura do track
+          background: "#e0e0e0", 
+          strokeWidth: "100%", 
         },
         dataLabels: {
           name: {
@@ -164,7 +164,7 @@ const Indicadores = () => {
           value: {
             show: true,
             fontSize: "14px",
-            formatter: (val) => `${val}%`, // Exibe valores como porcentagem
+            formatter: (val) => `${val}%`, 
           },
           total: {
             show: true,
@@ -180,16 +180,16 @@ const Indicadores = () => {
     labels: ["Concluídas", "Em Andamento", "Pendentes"],
     colors: ["#28a745", "#ffc107", "#dc3545"],
     legend: {
-      show: true, // Exibe a legenda
-      position: "bottom", // Posição da legenda
+      show: true, 
+      position: "bottom", 
       fontSize: "13px",
       labels: {
-        colors: "#333", // Cor do texto da legenda
+        colors: "#333", 
       },
       markers: {
         width: 12,
         height: 12,
-        radius: 6, // Deixa os marcadores arredondados
+        radius: 6, 
       },
       itemMargin: {
         horizontal: 10,
@@ -265,8 +265,7 @@ const Indicadores = () => {
   
 
   return (
-    <Box sx={{ padding: "16px" }}>
-      {/* Quadrantes */}
+    <Box sx={{ padding: "16px",  mt: "-20px", }}>
       <Grid container spacing={3}>
         {data.map((item, index) => (
           <Grid item xs={12} sm={6} md={3} key={index}>
@@ -366,8 +365,6 @@ const Indicadores = () => {
           </Grid>
         ))}
       </Grid>
-
-      {/* Gráficos */}
       <Grid container spacing={3} sx={{ marginTop: "16px" }}>
         <Grid item xs={12} md={6}>
           <Card

@@ -26,21 +26,21 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth }) => {
+const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const menuItems = [
-    { text: "Início", icon: faHome, link: "/" },
-    { text: "Indicadores", icon: faClipboardList, link: "/indicadores" },
-    { text: "Conformidade Legal", icon: faGavel, link: "/conformidade-legal" },
-    { text: "GPO", icon: faCogs, link: "/gpo" },
-    { text: "Gestão de EPI's", icon: faClipboardList, link: "/gestao-epis" },
-    { text: "Incêndio e Pânico", icon: faFire, link: "/incendio-panico" },
-    { text: "HO", icon: faBuilding, link: "/ho" },
-    { text: "Cultura SSO", icon: faBook, link: "/cultura-sso" },
-    { text: "Perícias e Demandas Judiciais", icon: faUsers, link: "/pericias" },
-    { text: "Contratadas", icon: faFileInvoice, link: "/contratadas" },
-    { text: "Tributação SSO", icon: faGavel, link: "/tributacao-sso" },
+    { text: "Início", icon: faHome, link: "/", showChevron: false },
+    { text: "Indicadores", icon: faClipboardList, link: "/indicadores", showChevron: false },
+    { text: "Conformidade Legal", icon: faGavel, link: "/conformidade-legal", showChevron: true },
+    { text: "GPO", icon: faCogs, link: "/gpo", showChevron: true },
+    { text: "Gestão de EPI's", icon: faClipboardList, link: "/gestao-epis", showChevron: true },
+    { text: "Incêndio e Pânico", icon: faFire, link: "/incendio-panico", showChevron: true },
+    { text: "HO", icon: faBuilding, link: "/ho", showChevron: true },
+    { text: "Cultura SSO", icon: faBook, link: "/cultura-sso", showChevron: true },
+    { text: "Perícias e Demandas Judiciais", icon: faUsers, link: "/pericias", showChevron: true },
+    { text: "Contratadas", icon: faFileInvoice, link: "/contratadas", showChevron: true },
+    { text: "Tributação SSO", icon: faGavel, link: "/tributacao-sso", showChevron: true },
   ];
 
   const filteredItems = menuItems.filter((item) =>
@@ -75,7 +75,7 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth }) => {
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: isOpen ? "center" : "flex-start", 
+            justifyContent: isOpen ? "center" : "flex-start",
             padding: "20px",
           }}
         >
@@ -90,10 +90,10 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth }) => {
             />
           ) : (
             <img
-              src="/logo-rs.png" 
+              src="/logo-rs.png"
               alt="RS Data Logo Fechada"
               style={{
-                width: "40px", 
+                width: "40px",
                 height: "auto",
               }}
             />
@@ -101,7 +101,7 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth }) => {
         </Box>
         {/* Campo de Busca */}
         <Box sx={{ padding: "8px 16px" }}>
-          {isOpen && ( 
+          {isOpen && (
             <TextField
               fullWidth
               size="small"
@@ -111,22 +111,22 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth }) => {
               onChange={(e) => setSearchQuery(e.target.value)}
               InputProps={{
                 sx: {
-                  backgroundColor: "#0078a3", 
-                  color: "#fff", 
-                  borderRadius: "5px", 
-                  height: "27px", 
-                  padding: "0 8px", 
-                  fontSize: "0.8rem", 
+                  backgroundColor: "#0078a3",
+                  color: "#fff",
+                  borderRadius: "5px",
+                  height: "27px",
+                  padding: "0 8px",
+                  fontSize: "0.8rem",
                   "& input::placeholder": {
-                    color: "#fff", 
-                    opacity: 1, 
+                    color: "#fff",
+                    opacity: 1,
                   },
                 },
-                disableUnderline: true, 
+                disableUnderline: true,
               }}
               sx={{
                 "& .MuiOutlinedInput-notchedOutline": {
-                  border: "none", 
+                  border: "none",
                 },
               }}
             />
@@ -139,36 +139,37 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth }) => {
               key={index}
               disablePadding
               sx={{
-                justifyContent: isOpen ? "flex-start" : "center", 
-                padding: isOpen ? "4px 16px" : "4px 0", 
+                justifyContent: isOpen ? "flex-start" : "center",
+                padding: isOpen ? "4px 16px" : "4px 0",
                 marginBottom: isOpen ? "4px" : "0px",
               }}
             >
               <ListItemButton
                 component={Link}
                 to={item.link}
+                onClick={() => setSelectedMenu({ text: item.text, icon: item.icon })} 
                 sx={{
-                  borderRadius: isOpen ? "4px" : "5px", 
-                  justifyContent: isOpen ? "flex-start" : "center", 
-                  padding: isOpen ? "4px" : "4px", 
+                  borderRadius: isOpen ? "4px" : "5px",
+                  justifyContent: isOpen ? "flex-start" : "center",
+                  padding: isOpen ? "4px" : "4px",
                   backgroundColor: "transparent",
                   color: "#fff",
                   "&:hover": {
-                    backgroundColor: "#e0f7fa", 
-                    color: "#0078a3", 
+                    backgroundColor: "#e0f7fa",
+                    color: "#0078a3",
                     "& .MuiListItemIcon-root": {
-                      color: "#0078a3", 
+                      color: "#0078a3",
                     },
                   },
                 }}
               >
                 <ListItemIcon
                   sx={{
-                    color: "#fff", 
+                    color: "#fff",
                     justifyContent: "center",
-                    minWidth: "auto", 
-                    fontSize: isOpen ? "0.85rem" : "0.85rem", 
-                    marginRight: isOpen ? "8px" : "0px", 
+                    minWidth: "auto",
+                    fontSize: isOpen ? "0.85rem" : "0.85rem",
+                    marginRight: isOpen ? "8px" : "0px",
                   }}
                 >
                   <FontAwesomeIcon icon={item.icon} />
@@ -188,6 +189,12 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth }) => {
                         WebkitBoxOrient: "vertical",
                       },
                     }}
+                  />
+                )}
+                {isOpen && item.showChevron && (
+                  <FontAwesomeIcon
+                    icon={faChevronDown}
+                    style={{ marginLeft: "auto", fontSize: "0.8rem" }}
                   />
                 )}
               </ListItemButton>
