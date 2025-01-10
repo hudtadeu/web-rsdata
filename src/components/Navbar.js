@@ -26,6 +26,7 @@ import {
   faBarChart,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import ConformidadeLegalMenu from "./menus/ConformidadeLegalMenu";
 
 const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -101,7 +102,6 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu }) => {
             />
           )}
         </Box>
-        {/* Campo de Busca */}
         <Box sx={{ padding: "8px 16px" }}>
           {isOpen && (
             <TextField
@@ -202,6 +202,7 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu }) => {
               </ListItemButton>
             </ListItem>
           ))}
+          <ConformidadeLegalMenu />
         </List>
       </Box>
       {/* Botão Sair */}

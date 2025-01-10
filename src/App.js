@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/menu/Navbar";
-import TopNavbar from "./components/menu/TopNavbar";
+import Navbar from "./components/Navbar";
+import TopNavbar from "./components/TopNavbar";
 import Dashboard from "./components/dashboard/Dashboard";
 import Indicadores from "./components/indicadores/Indicadores";
 
