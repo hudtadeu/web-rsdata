@@ -32,7 +32,7 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu }) => {
 
   const menuItems = [
     { text: "Início", icon: faHome, link: "/", showChevron: false },
-    { text: "Indicadores", icon: faBarChart, link: "/indicadores", showChevron: false },
+    { text: "Dashboard", icon: faBarChart, link: "/dashboard", showChevron: false },
     { text: "Conformidade Legal", icon: faGavel, link: "/conformidade-legal", showChevron: true },
     { text: "GPO", icon: faCogs, link: "/gpo", showChevron: true },
     { text: "Gestão de EPI's", icon: faClipboardList, link: "/gestao-epis", showChevron: true },
@@ -76,7 +76,7 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu }) => {
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: isOpen ? "center" : "flex-start",
+            justifyContent: "center",
             padding: "20px",
           }}
         >
@@ -94,8 +94,9 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu }) => {
               src="/logo-rs.png"
               alt="RS Data Logo Fechada"
               style={{
-                width: "40px",
+                width: "30px",
                 height: "auto",
+                marginBottom: "-20px",
               }}
             />
           )}
@@ -141,8 +142,8 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu }) => {
               disablePadding
               sx={{
                 justifyContent: isOpen ? "flex-start" : "center",
-                padding: isOpen ? "4px 16px" : "4px 0",
-                marginBottom: isOpen ? "4px" : "0px",
+                padding: isOpen ? "4px 15px" : "5px 10px",
+                marginBottom: isOpen ? "0px" : "5px",
               }}
             >
               <ListItemButton

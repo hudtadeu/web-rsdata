@@ -16,7 +16,6 @@ const TopNavbar = ({ sidebarWidth, isSidebarOpen, toggleSidebar, selectedMenu })
       }}
     >
       <Toolbar>
-        {/* Botão para alternar o Sidebar */}
         <IconButton
           onClick={toggleSidebar}
           sx={{
@@ -27,14 +26,12 @@ const TopNavbar = ({ sidebarWidth, isSidebarOpen, toggleSidebar, selectedMenu })
         >
           <FontAwesomeIcon icon={faBars} />
         </IconButton>
-
-        {/* Ícone e Texto do Menu Selecionado */}
         <Box
           sx={{
             display: "flex",
-            alignItems: "center", // Alinha ícone e texto verticalmente
-            gap: "8px", // Espaço entre o ícone e o texto
-            flexGrow: 1, // Ocupa o espaço restante
+            alignItems: "center", 
+            gap: "8px",
+            flexGrow: 1, 
             overflow: "hidden",
           }}
         >
@@ -57,11 +54,9 @@ const TopNavbar = ({ sidebarWidth, isSidebarOpen, toggleSidebar, selectedMenu })
               whiteSpace: "nowrap",
             }}
           >
-            {selectedMenu.text || "Selecione um Menu"}
+            {selectedMenu.text}
           </Typography>
         </Box>
-
-        {/* Ícone do Usuário */}
         <IconButton sx={{ color: "#0098c9", fontSize: "1.2rem" }}>
           <FontAwesomeIcon icon={faUserCircle} />
         </IconButton>

@@ -3,9 +3,9 @@ import { Grid, Paper, Typography, Avatar } from '@mui/material';
 import { Assignment, Work, LocalFireDepartment, AccountBalance, Gavel, GroupWork, MonetizationOn } from '@mui/icons-material';
 
 const dashboardData = [
-  { title: 'Conformidade Legal', icon: <Assignment />, color: '#00bfa5', description: '' },
-  { title: 'GPO', icon: <Work />, color: '#26c6da', description: '' },
-  { title: 'Gestão de EPI\'s', icon: <Work />, color: '#43a047', description: '' },
+  { title: 'Conformidade Legal', icon: <Assignment />, color: '#00bfa5', description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' },
+  { title: 'GPO', icon: <Work />, color: '#26c6da', description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' },
+  { title: 'Gestão de EPI\'s', icon: <Work />, color: '#43a047', description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' },
   { title: 'Incêndio e Pânico', icon: <LocalFireDepartment />, color: '#66bb6a', description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' },
   { title: 'HO', icon: <AccountBalance />, color: '#ffd54f', description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' },
   { title: 'Cultura SSO', icon: <Gavel />, color: '#ff7043', description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' },

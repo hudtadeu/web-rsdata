@@ -6,46 +6,42 @@ import Dashboard from "./components/dashboard/Dashboard";
 import Indicadores from "./components/indicadores/Indicadores";
 
 function App() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Estado de abertura do Sidebar
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [selectedMenu, setSelectedMenu] = useState({ text: "", icon: null });
-  const sidebarWidth = 250; // Largura do Sidebar aberto
-  const sidebarMinWidth = 60; // Largura do Sidebar fechado
+  const sidebarWidth = 250; 
+  const sidebarMinWidth = 60; 
 
   const toggleSidebar = () => {
-    setIsSidebarOpen((prev) => !prev); // Alternar estado do Sidebar
+    setIsSidebarOpen((prev) => !prev); 
   };
 
   return (
     <Router>
       <div style={{ display: "flex", height: "100vh", overflow: "hidden" }}>
-        {/* Navbar */}
         <Navbar
           isOpen={isSidebarOpen}
           sidebarWidth={sidebarWidth}
           sidebarMinWidth={sidebarMinWidth}
-          setSelectedMenu={setSelectedMenu} // Passa a função para atualizar o menu selecionado
+          setSelectedMenu={setSelectedMenu} 
         />
-        {/* Área Principal */}
         <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-          {/* TopNavbar */}
           <TopNavbar
             sidebarWidth={isSidebarOpen ? sidebarWidth : sidebarMinWidth}
             isSidebarOpen={isSidebarOpen}
             toggleSidebar={toggleSidebar}
-            selectedMenu={selectedMenu} // Passa o menu selecionado
+            selectedMenu={selectedMenu}
           />
-          {/* Conteúdo */}
           <div
             style={{
               flex: 1,
               overflow: "auto",
-              marginTop: "64px", // Altura do TopNavbar
-              padding: "16px", // Espaçamento interno do conteúdo
+              marginTop: "64px", 
+              padding: "16px", 
             }}
           >
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/indicadores" element={<Indicadores />} />
+              <Route path="/dashboard" element={<Indicadores />} />
             </Routes>
           </div>
         </div>
