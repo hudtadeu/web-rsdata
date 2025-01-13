@@ -1077,15 +1077,56 @@ const ConformidadeLegalMenu = () => {
                         </ListItemButton>
                         </ListItem>
                         <ListItem disablePadding>
-                        <ListItemButton sx={{ padding: "3px 10px" }}>
+                        <ListItemButton
+                            onClick={() => setOpenComunicacaoInterna(!openComunicacaoInterna)}
+                            sx={{ padding: "3px 10px" }}
+                        >
                             <ListItemText
                             primary="Comunicação Interna"
                             primaryTypographyProps={{
                                 sx: { fontSize: "0.75rem", fontWeight: "400" },
                             }}
                             />
+                            <FontAwesomeIcon
+                            icon={openComunicacaoInterna ? faChevronDown : faChevronRight}
+                            style={{ fontSize: "12px" }}
+                            />
                         </ListItemButton>
                         </ListItem>
+                        <Collapse in={openComunicacaoInterna} timeout="auto" unmountOnExit>
+                        <List disablePadding sx={{ paddingLeft: "15px" }}>
+                        <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Denúncias/Reclamações"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Sugestões de Melhorias"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Participação dos Empregados"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            </List>
+                            </Collapse>
                     </List>
                     </Collapse>
 
