@@ -42,7 +42,6 @@ const ConformidadeLegalMenu = () => {
   const [openHomeOffice, setOpenHomeOffice] = useState(false); 
   const [openAdequacao, setOpenAdequacao] = useState(false); 
   const [openESG, setOpenESG] = useState(false); 
-  const [openOutraAvaliacao, setOpenOutraAvaliacao] = useState(false); 
   const [openPlanos, setOpenPlanos] = useState(false); 
   const [openControleOcupacionais, setOpenControleOcupacionais] = useState(false); 
   const [openRegistrosDiversos, setOpenRegistrosDiversos] = useState(false); 
@@ -791,7 +790,7 @@ const ConformidadeLegalMenu = () => {
                         <List disablePadding sx={{ paddingLeft: "15px" }}>
                         <ListItem disablePadding>
                             <ListItemButton 
-                                onClick={() => openEficacia (!setOpenEficacia)}
+                                onClick={() => setOpenEficacia (!openEficacia)}
                                 sx={{ padding: "3px 10px" }}
                                 >
                                 <ListItemText
@@ -832,7 +831,7 @@ const ConformidadeLegalMenu = () => {
                         </Collapse>
                         <ListItem disablePadding>
                             <ListItemButton 
-                                onClick={() => openErgonomicas(!setOpenErgonomicas)}
+                                onClick={() => setOpenErgonomicas(!openErgonomicas)}
                                 sx={{ padding: "3px 10px" }}
                                 >
                                 <ListItemText
@@ -869,11 +868,11 @@ const ConformidadeLegalMenu = () => {
                                 />
                             </ListItemButton>
                             </ListItem>
-							            </List>
+							 </List>
                         </Collapse>
                             <ListItem disablePadding>
                             <ListItemButton 
-                                onClick={() => openFadiga(!setOpenFadiga)}
+                                onClick={() => setOpenFadiga(!openFadiga)}
                                 sx={{ padding: "3px 10px" }}
                                 >
                                 <ListItemText
@@ -914,7 +913,7 @@ const ConformidadeLegalMenu = () => {
                         </Collapse>
                         <ListItem disablePadding>
                             <ListItemButton 
-                                onClick={() => openHomeOffice(!setOpenHomeOffice)}
+                                onClick={() => setOpenHomeOffice(!openHomeOffice)}
                                 sx={{ padding: "3px 10px" }}
                                 >
                                 <ListItemText
@@ -951,11 +950,11 @@ const ConformidadeLegalMenu = () => {
                                 />
                             </ListItemButton>
                             </ListItem>
-							            </List>
+							</List>
                         </Collapse>
                         <ListItem disablePadding>
                             <ListItemButton 
-                                onClick={() => openAdequacao(!setOpenAdequacao)}
+                                onClick={() => setOpenAdequacao(!openAdequacao)}
                                 sx={{ padding: "3px 10px" }}
                                 >
                                 <ListItemText
@@ -992,7 +991,48 @@ const ConformidadeLegalMenu = () => {
                                 />
                             </ListItemButton>
                             </ListItem>
-							            </List>
+							</List>
+                        </Collapse>
+                        <ListItem disablePadding>
+                            <ListItemButton 
+                                onClick={() => setOpenESG(!openESG)}
+                                sx={{ padding: "3px 10px" }}
+                                >
+                                <ListItemText
+                                primary="ESG"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                                <FontAwesomeIcon
+                                icon={faChevronRight}
+                                style={{ fontSize: "12px" }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <Collapse in={openESG} timeout="auto" unmountOnExit>
+                        <List disablePadding sx={{ paddingLeft: "15px" }}>
+                        <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Elaboração"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Revisão"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+							</List>
                         </Collapse>
                         <ListItem disablePadding>
                             <ListItemButton sx={{ padding: "3px 10px" }}>
