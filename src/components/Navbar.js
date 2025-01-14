@@ -34,7 +34,7 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu }) => {
   const menuItems = [
     { text: "Início", icon: faHome, link: "/", showChevron: false },
     { text: "Dashboard", icon: faBarChart, link: "/dashboard", showChevron: false },
-    { text: "Conformidade Legal", icon: faGavel, link: "/conformidade-legal", showChevron: true },
+    { text: "Conformidade Legal", icon: faGavel, path: "/conformidade-legal" },
     { text: "GPO", icon: faCogs, link: "/gpo", showChevron: true },
     { text: "Gestão de EPI's", icon: faClipboardList, link: "/gestao-epis", showChevron: true },
     { text: "Incêndio e Pânico", icon: faFire, link: "/incendio-panico", showChevron: true },
@@ -136,74 +136,69 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu }) => {
         </Box>
         {/* Menu */}
         <List>
-          {menuItems.map((item, index) => (
-            <ListItem
-              key={index}
-              disablePadding
-              sx={{
-                justifyContent: isOpen ? "flex-start" : "center",
-                padding: isOpen ? "4px 15px" : "5px 10px",
-                marginBottom: isOpen ? "0px" : "5px",
-              }}
-            >
-              <ListItemButton
-                component={Link}
-                to={item.link}
-                onClick={() => setSelectedMenu({ text: item.text, icon: item.icon })} 
-                sx={{
-                  borderRadius: isOpen ? "4px" : "5px",
-                  justifyContent: isOpen ? "flex-start" : "center",
-                  padding: isOpen ? "4px" : "4px",
-                  backgroundColor: "transparent",
-                  color: "#fff",
-                  "&:hover": {
-                    backgroundColor: "#e0f7fa",
-                    color: "#0078a3",
-                    "& .MuiListItemIcon-root": {
-                      color: "#0078a3",
-                    },
-                  },
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    color: "#fff",
-                    justifyContent: "center",
-                    minWidth: "auto",
-                    fontSize: isOpen ? "0.85rem" : "0.85rem",
-                    marginRight: isOpen ? "8px" : "0px",
-                  }}
-                >
-                  <FontAwesomeIcon icon={item.icon} />
-                </ListItemIcon>
-                {isOpen && (
-                  <ListItemText
-                    primary={item.text}
-                    primaryTypographyProps={{
-                      sx: {
-                        fontSize: "0.75rem",
-                        fontWeight: "500",
-                        color: "inherit",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        display: "-webkit-box",
-                        WebkitLineClamp: 1,
-                        WebkitBoxOrient: "vertical",
-                      },
-                    }}
-                  />
-                )}
-                {isOpen && item.showChevron && (
-                  <FontAwesomeIcon
-                    icon={faChevronDown}
-                    style={{ marginLeft: "auto", fontSize: "0.8rem" }}
-                  />
-                )}
-              </ListItemButton>
-            </ListItem>
-          ))}
-          <ConformidadeLegalMenu />
-        </List>
+  {menuItems.map((item, index) => (
+    <ListItem
+      key={index}
+      disablePadding
+      sx={{
+        justifyContent: isOpen ? "flex-start" : "center",
+        padding: isOpen ? "4px 15px" : "5px 10px",
+        marginBottom: isOpen ? "0px" : "5px",
+      }}
+    >
+      <ListItemButton
+        component={Link}
+        to={item.link}
+        onClick={() => setSelectedMenu({ text: item.text, icon: item.icon })}
+        sx={{
+          borderRadius: isOpen ? "4px" : "5px",
+          justifyContent: isOpen ? "flex-start" : "center",
+          padding: isOpen ? "4px" : "4px",
+          backgroundColor: "transparent",
+          color: "#fff",
+          "&:hover": {
+            backgroundColor: "#e0f7fa",
+            color: "#0078a3",
+            "& .MuiListItemIcon-root": {
+              color: "#0078a3",
+            },
+          },
+        }}
+      >
+        <ListItemIcon
+          sx={{
+            color: "#fff",
+            justifyContent: "center",
+            minWidth: "auto",
+            fontSize: isOpen ? "0.85rem" : "0.85rem",
+            marginRight: isOpen ? "8px" : "0px",
+          }}
+        >
+          <FontAwesomeIcon icon={item.icon} />
+        </ListItemIcon>
+        {isOpen && (
+          <ListItemText
+            primary={item.text}
+            primaryTypographyProps={{
+              sx: {
+                fontSize: "0.75rem",
+                fontWeight: "500",
+                color: "inherit",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                display: "-webkit-box",
+                WebkitLineClamp: 1,
+                WebkitBoxOrient: "vertical",
+              },
+            }}
+          />
+        )}
+      </ListItemButton>
+    </ListItem>
+  ))}
+  <ConformidadeLegalMenu isOpen={isOpen} />
+</List>
+
       </Box>
       {/* Botão Sair */}
       <Divider />

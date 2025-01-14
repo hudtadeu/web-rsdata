@@ -12,9 +12,11 @@ import {
   faChevronRight,
   faChevronDown,
   faClipboard,
+  faGavel,
 } from "@fortawesome/free-solid-svg-icons";
 
-const ConformidadeLegalMenu = () => {
+const ConformidadeLegalMenu = ({ isOpen }) => {
+    const [openSubmenu, setOpenSubmenu] = useState(false);
   const [openConformidade, setOpenConformidade] = useState(false); 
   const [openRequisitos, setOpenRequisitos] = useState(false); 
   const [openDocumentos, setOpenDocumentos] = useState(false); 
@@ -43,33 +45,59 @@ const ConformidadeLegalMenu = () => {
   const [openAdequacao, setOpenAdequacao] = useState(false); 
   const [openESG, setOpenESG] = useState(false); 
   const [openPlanos, setOpenPlanos] = useState(false); 
+  const [openPAE, setOpenPAE] = useState(false); 
+  const [openPGRSS, setOpenPGRSS] = useState(false); 
   const [openControleOcupacionais, setOpenControleOcupacionais] = useState(false); 
+  const [openOrdemServicos, setOpenOrdemServicos] = useState(false); 
+  const [openGestaoMudancas, setOpenGestaoMudacas] = useState(false); 
+  const [openPadrinho, setOpenPadrinho ] = useState(false); 
   const [openRegistrosDiversos, setOpenRegistrosDiversos] = useState(false); 
+  const [openAtas, setOpenAtas] = useState(false); 
+  const [openOutrosRegistros, setOpenOutrosRegistros] = useState(false);  
   const [openComunicacaoInterna, setOpenComunicacaoInterna] = useState(false); 
 
+  const handleMenuClick = () => {
+    if (isOpen) {
+      setOpenSubmenu((prev) => !prev);
+    }
+  };
+
   return (
-    <List component="nav" disablePadding>
+    <List disablePadding>
+      {/* Menu Principal */}
       <ListItem disablePadding>
         <ListItemButton
-          onClick={() => setOpenConformidade(!openConformidade)}
-          sx={{ padding: "5px 10px" }}
+          onClick={handleMenuClick}
+          sx={{
+            padding: isOpen ? "5px 10px" : "10px",
+            justifyContent: isOpen ? "flex-start" : "center",
+          }}
         >
-          <ListItemIcon sx={{ minWidth: "30px" }}>
-            <FontAwesomeIcon icon={faClipboard} style={{ fontSize: "16px" }} />
-          </ListItemIcon>
-          <ListItemText
-            primary="Conformidade Legal"
-            primaryTypographyProps={{
-              sx: { fontSize: "0.75rem", fontWeight: "500" },
+          <ListItemIcon
+            sx={{
+              minWidth: "30px",
+              justifyContent: "center",
             }}
-          />
-          <FontAwesomeIcon
-            icon={openConformidade ? faChevronDown : faChevronRight}
-            style={{ fontSize: "12px" }}
-          />
+          >
+            <FontAwesomeIcon icon={faGavel} style={{ fontSize: "16px" }} />
+          </ListItemIcon>
+          {isOpen && (
+            <>
+              <ListItemText
+                primary="Conformidade Legal"
+                primaryTypographyProps={{
+                  sx: { fontSize: "0.75rem", fontWeight: "500" },
+                }}
+              />
+              <FontAwesomeIcon
+                icon={openSubmenu ? faChevronDown : faChevronRight}
+                style={{ fontSize: "12px", marginLeft: "auto" }}
+              />
+            </>
+          )}
         </ListItemButton>
       </ListItem>
-      <Collapse in={openConformidade} timeout="auto" unmountOnExit>
+      <Collapse in={openSubmenu && isOpen} timeout="auto" unmountOnExit>
         <List disablePadding sx={{ paddingLeft: "15px" }}>
           {/* Requisitos Legais */}
           <ListItem disablePadding>
@@ -241,7 +269,7 @@ const ConformidadeLegalMenu = () => {
                                 />
                             </ListItemButton>
                             </ListItem>
-							            </List>
+							 </List>
                         </Collapse>
                         </List>
                         </Collapse>
@@ -303,7 +331,7 @@ const ConformidadeLegalMenu = () => {
                                 />
                             </ListItemButton>
                             </ListItem>
-							            </List>
+						 </List>
                         </Collapse>
                             <ListItem disablePadding>
                             <ListItemButton sx={{ padding: "3px 10px" }}>
@@ -1047,35 +1075,395 @@ const ConformidadeLegalMenu = () => {
                         </List>
                         </Collapse>
                         <ListItem disablePadding>
-                        <ListItemButton sx={{ padding: "3px 10px" }}>
+                        <ListItemButton
+                            onClick={() => setOpenPlanos(!openPlanos)}
+                            sx={{ padding: "3px 10px" }}
+                        >
                             <ListItemText
                             primary="Planos"
                             primaryTypographyProps={{
                                 sx: { fontSize: "0.75rem", fontWeight: "400" },
                             }}
                             />
+                            <FontAwesomeIcon
+                            icon={openPlanos ? faChevronDown : faChevronRight}
+                            style={{ fontSize: "12px" }}
+                            />
                         </ListItemButton>
                         </ListItem>
+                        <Collapse in={openPlanos} timeout="auto" unmountOnExit>
+                        <List disablePadding sx={{ paddingLeft: "15px" }}>
                         <ListItem disablePadding>
-                        <ListItemButton sx={{ padding: "3px 10px" }}>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Plano de Trabalho"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                        <ListItem disablePadding>
+                            <ListItemButton 
+                                onClick={() => setOpenPAE(!openPAE)}
+                                sx={{ padding: "3px 10px" }}
+                                >
+                                <ListItemText
+                                primary="PAE/PAM"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                                <FontAwesomeIcon
+                                icon={faChevronRight}
+                                style={{ fontSize: "12px" }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <Collapse in={openPAE} timeout="auto" unmountOnExit>
+                        <List disablePadding sx={{ paddingLeft: "15px" }}>
+                        <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Elaboração"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Revisão"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Exercícios Simualdos"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+						  </List>
+                        </Collapse>
+                            <ListItem disablePadding>
+                            <ListItemButton 
+                                onClick={() => setOpenPGRSS(!openPGRSS)}
+                                sx={{ padding: "3px 10px" }}
+                                >
+                                <ListItemText
+                                primary="PGRSS"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                                <FontAwesomeIcon
+                                icon={faChevronRight}
+                                style={{ fontSize: "12px" }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <Collapse in={openPGRSS} timeout="auto" unmountOnExit>
+                        <List disablePadding sx={{ paddingLeft: "15px" }}>
+                        <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Elaboração"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Revisão"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            </List>
+                        </Collapse>
+						 </List>
+                        </Collapse>
+                        <ListItem disablePadding>
+                        <ListItemButton
+                            onClick={() => setOpenControleOcupacionais(!openControleOcupacionais)}
+                            sx={{ padding: "3px 10px" }}
+                        >
                             <ListItemText
-                            primary="Controle de Riscos Ocupacionais"
+                            primary="Conrole de Riscos Ocupacionais"
                             primaryTypographyProps={{
                                 sx: { fontSize: "0.75rem", fontWeight: "400" },
                             }}
                             />
+                            <FontAwesomeIcon
+                            icon={openControleOcupacionais ? faChevronDown : faChevronRight}
+                            style={{ fontSize: "12px" }}
+                            />
                         </ListItemButton>
                         </ListItem>
+                        <Collapse in={openControleOcupacionais} timeout="auto" unmountOnExit>
+                        <List disablePadding sx={{ paddingLeft: "15px" }}>
+                            <ListItem disablePadding>
+                            <ListItemButton 
+                                onClick={() => setOpenOrdemServicos(!openOrdemServicos)}
+                                sx={{ padding: "3px 10px" }}
+                                >
+                                <ListItemText
+                                primary="Ordem de Serviço"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                                <FontAwesomeIcon
+                                icon={faChevronRight}
+                                style={{ fontSize: "12px" }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <Collapse in={openOrdemServicos} timeout="auto" unmountOnExit>
+                        <List disablePadding sx={{ paddingLeft: "15px" }}>
+                            <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Elaboração"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Revisão"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+						  </List>
+                        </Collapse>
                         <ListItem disablePadding>
-                        <ListItemButton sx={{ padding: "3px 10px" }}>
+                            <ListItemButton 
+                                onClick={() => setOpenGestaoMudacas(!openGestaoMudancas)}
+                                sx={{ padding: "3px 10px" }}
+                                >
+                                <ListItemText
+                                primary="Gestão de Mudanças"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                                <FontAwesomeIcon
+                                icon={faChevronRight}
+                                style={{ fontSize: "12px" }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <Collapse in={openGestaoMudancas} timeout="auto" unmountOnExit>
+                        <List disablePadding sx={{ paddingLeft: "15px" }}>
+                            <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Elaboração"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Revisão"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+						  </List>
+                        </Collapse>
+                            <ListItem disablePadding>
+                            <ListItemButton 
+                                onClick={() => setOpenPadrinho(!openPadrinho)}
+                                sx={{ padding: "3px 10px" }}
+                                >
+                                <ListItemText
+                                primary="Padrinho"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                                <FontAwesomeIcon
+                                icon={faChevronRight}
+                                style={{ fontSize: "12px" }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <Collapse in={setOpenPadrinho} timeout="auto" unmountOnExit>
+                        <List disablePadding sx={{ paddingLeft: "15px" }}>
+                        <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Elaboração"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Revisão"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            </List>
+                        </Collapse>
+						 </List>
+                        </Collapse>
+                        <ListItem disablePadding>
+                        <ListItemButton
+                            onClick={() => setOpenRegistrosDiversos(!openRegistrosDiversos)}
+                            sx={{ padding: "3px 10px" }}
+                        >
                             <ListItemText
                             primary="Registros Diversos"
                             primaryTypographyProps={{
                                 sx: { fontSize: "0.75rem", fontWeight: "400" },
                             }}
                             />
+                            <FontAwesomeIcon
+                            icon={openRegistrosDiversos ? faChevronDown : faChevronRight}
+                            style={{ fontSize: "12px" }}
+                            />
                         </ListItemButton>
                         </ListItem>
+                        <Collapse in={openRegistrosDiversos} timeout="auto" unmountOnExit>
+                        <List disablePadding sx={{ paddingLeft: "15px" }}>
+                        <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Advertências"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                        <ListItem disablePadding>
+                            <ListItemButton 
+                                onClick={() => setOpenAtas(!openAtas)}
+                                sx={{ padding: "3px 10px" }}
+                                >
+                                <ListItemText
+                                primary="Atas e Reuniões Diversas"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                                <FontAwesomeIcon
+                                icon={faChevronRight}
+                                style={{ fontSize: "12px" }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <Collapse in={openAtas} timeout="auto" unmountOnExit>
+                        <List disablePadding sx={{ paddingLeft: "15px" }}>
+                            <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Plano de Ação"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+						 </List>
+                        </Collapse>
+                            <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Cartilhas e Manuais"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding>
+                            <ListItemButton 
+                                onClick={() => setOpenOutrosRegistros(!openOutrosRegistros)}
+                                sx={{ padding: "3px 10px" }}
+                                >
+                                <ListItemText
+                                primary="Outros Registros"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                                <FontAwesomeIcon
+                                icon={faChevronRight}
+                                style={{ fontSize: "12px" }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <Collapse in={openOutrosRegistros} timeout="auto" unmountOnExit>
+                        <List disablePadding sx={{ paddingLeft: "15px" }}>
+                        <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Termos de autorização/proibição de atividade"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Requisitos de segurança para trabalhos perigosos"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding>
+                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                                <ListItemText
+                                primary="Instalações físicas dos locais de trabalho"
+                                primaryTypographyProps={{
+                                    sx: { fontSize: "0.75rem", fontWeight: "400" },
+                                }}
+                                />
+                            </ListItemButton>
+                            </ListItem>
+							 </List>
+                        </Collapse>
+                        </List>
+                        </Collapse>
                         <ListItem disablePadding>
                         <ListItemButton
                             onClick={() => setOpenComunicacaoInterna(!openComunicacaoInterna)}
