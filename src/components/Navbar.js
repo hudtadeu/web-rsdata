@@ -8,45 +8,36 @@ import {
   ListItemText,
   Box,
   Divider,
-  TextField,
 } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
-  faGavel,
-  faCogs,
-  faFire,
-  faBuilding,
-  faBook,
-  faUsers,
-  faFileInvoice,
-  faClipboardList,
   faSignOutAlt,
   faChevronDown,
   faBarChart,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import ConformidadeLegalMenu from "./menus/ConformidadeLegalMenu";
+import GPOMenu from "./menus/GPOMenu";
+import GestaoEPIMenu from "./menus/GestaoEPIMenu";
+import IncendioPanicoMenu from "./menus/IncendioPanicoMenu";
+import CulturaSSOMenu from "./menus/CulturaSSOMenu";
+import PericiasMenu from "./menus/PericiasMenu";
+import TributacaoSSOMenu from "./menus/TributacaoSSOMenu";
+import ContratadasMenu from "./menus/ContratadasMenu";
+import HOMenu from "./menus/HOMenu";
 
 const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu }) => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [activeMenu, setActiveMenu] = useState(null); 
 
   const menuItems = [
-    { text: "Início", icon: faHome, link: "/", showChevron: false },
-    { text: "Dashboard", icon: faBarChart, link: "/dashboard", showChevron: false },
-    { text: "GPO", icon: faCogs, link: "/gpo", showChevron: true },
-    { text: "Gestão de EPI's", icon: faClipboardList, link: "/gestao-epis", showChevron: true },
-    { text: "Incêndio e Pânico", icon: faFire, link: "/incendio-panico", showChevron: true },
-    { text: "HO", icon: faBuilding, link: "/ho", showChevron: true },
-    { text: "Cultura SSO", icon: faBook, link: "/cultura-sso", showChevron: true },
-    { text: "Perícias e Demandas Judiciais", icon: faUsers, link: "/pericias", showChevron: true },
-    { text: "Contratadas", icon: faFileInvoice, link: "/contratadas", showChevron: true },
-    { text: "Tributação SSO", icon: faGavel, link: "/tributacao-sso", showChevron: true },
+    { id: "inicio", text: "Início", icon: faHome, link: "/" },
+    { id: "dashboard", text: "Dashboard", icon: faBarChart, link: "/dashboard" },
   ];
 
-  const filteredItems = menuItems.filter((item) =>
-    item.text.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const handleMenuClick = (menuId) => {
+    setActiveMenu(menuId); 
+  };
 
   return (
     <Drawer
@@ -65,8 +56,21 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu }) => {
           boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
           transition: "width 0.3s ease",
           overflowX: "hidden",
-          display: "flex",
-          flexDirection: "column",
+          overflowY: "auto",
+          "&::-webkit-scrollbar": {
+            width: "8px",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "#0078a3",
+            borderRadius: "10px",
+          },
+          "&::-webkit-scrollbar-thumb:hover": {
+            backgroundColor: "#005f73",
+          },
+          "&::-webkit-scrollbar-track": {
+            backgroundColor: "#e0f7fa",
+            borderRadius: "10px",
+          },
         },
       }}
     >
@@ -101,104 +105,121 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu }) => {
             />
           )}
         </Box>
-        <Box sx={{ padding: "8px 16px" }}>
-          {isOpen && (
-            <TextField
-              fullWidth
-              size="small"
-              variant="outlined"
-              placeholder="Buscar..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              InputProps={{
-                sx: {
-                  backgroundColor: "#0078a3",
-                  color: "#fff",
-                  borderRadius: "5px",
-                  height: "27px",
-                  padding: "0 8px",
-                  fontSize: "0.8rem",
-                  "& input::placeholder": {
-                    color: "#fff",
-                    opacity: 1,
-                  },
-                },
-                disableUnderline: true,
-              }}
-              sx={{
-                "& .MuiOutlinedInput-notchedOutline": {
-                  border: "none",
-                },
-              }}
-            />
-          )}
-        </Box>
+
         {/* Menu */}
         <List>
-  {menuItems.map((item, index) => (
-    <ListItem
-      key={index}
-      disablePadding
-      sx={{
-        justifyContent: isOpen ? "flex-start" : "center",
-        padding: isOpen ? "4px 15px" : "5px 10px",
-        marginBottom: isOpen ? "0px" : "5px",
-      }}
-    >
-      <ListItemButton
-        component={Link}
-        to={item.link}
-        onClick={() => setSelectedMenu({ text: item.text, icon: item.icon })}
-        sx={{
-          borderRadius: isOpen ? "4px" : "5px",
-          justifyContent: isOpen ? "flex-start" : "center",
-          padding: isOpen ? "4px" : "4px",
-          backgroundColor: "transparent",
-          color: "#fff",
-          "&:hover": {
-            backgroundColor: "#e0f7fa",
-            color: "#0078a3",
-            "& .MuiListItemIcon-root": {
-              color: "#0078a3",
-            },
-          },
-        }}
-      >
-        <ListItemIcon
-          sx={{
-            color: "#fff",
-            justifyContent: "center",
-            minWidth: "auto",
-            fontSize: isOpen ? "0.85rem" : "0.85rem",
-            marginRight: isOpen ? "8px" : "0px",
-          }}
-        >
-          <FontAwesomeIcon icon={item.icon} />
-        </ListItemIcon>
-        {isOpen && (
-          <ListItemText
-            primary={item.text}
-            primaryTypographyProps={{
-              sx: {
-                fontSize: "0.75rem",
-                fontWeight: "500",
-                color: "inherit",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                display: "-webkit-box",
-                WebkitLineClamp: 1,
-                WebkitBoxOrient: "vertical",
-              },
-            }}
+          {menuItems.map((item) => (
+            <ListItem
+              key={item.id}
+              disablePadding
+              sx={{
+                justifyContent: isOpen ? "flex-start" : "center",
+                padding: isOpen ? "4px 15px" : "5px 10px",
+                marginBottom: isOpen ? "0px" : "5px",
+              }}
+            >
+              <ListItemButton
+                component={Link}
+                to={item.link}
+                onClick={() => {
+                  handleMenuClick(item.id);
+                  setSelectedMenu({ text: item.text, icon: item.icon });
+                }}
+                sx={{
+                  borderRadius: isOpen ? "4px" : "5px",
+                  justifyContent: isOpen ? "flex-start" : "center",
+                  padding: isOpen ? "4px" : "4px",
+                  backgroundColor: activeMenu === item.id ? "#e0f7fa" : "transparent",
+                  color: activeMenu === item.id ? "#0078a3" : "#fff",
+                  "&:hover": {
+                    backgroundColor: "#e0f7fa",
+                    color: "#0078a3",
+                    "& .MuiListItemIcon-root": {
+                      color: "#0078a3",
+                    },
+                  },
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    color: activeMenu === item.id ? "#0078a3" : "#fff",
+                    justifyContent: "center",
+                    minWidth: "auto",
+                    fontSize: isOpen ? "0.85rem" : "0.85rem",
+                    marginRight: isOpen ? "8px" : "0px",
+                  }}
+                >
+                  <FontAwesomeIcon icon={item.icon} />
+                </ListItemIcon>
+                {isOpen && (
+                  <ListItemText
+                    primary={item.text}
+                    primaryTypographyProps={{
+                      sx: {
+                        fontSize: "0.75rem",
+                        fontWeight: "500",
+                        color: "inherit",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        display: "-webkit-box",
+                        WebkitLineClamp: 1,
+                        WebkitBoxOrient: "vertical",
+                      },
+                    }}
+                  />
+                )}
+              </ListItemButton>
+            </ListItem>
+          ))}
+          {/* Menus Adicionais */}
+          <ConformidadeLegalMenu
+            isOpen={isOpen}
+            isActive={activeMenu === "conformidadeLegal"}
+            onClick={() => handleMenuClick("conformidadeLegal")}
           />
-        )}
-      </ListItemButton>
-    </ListItem>
-  ))}
-  <ConformidadeLegalMenu isOpen={isOpen} />
-</List>
-
+          <GPOMenu
+            isOpen={isOpen}
+            isActive={activeMenu === "gpo"}
+            onClick={() => handleMenuClick("gpo")}
+          />
+          <GestaoEPIMenu
+            isOpen={isOpen}
+            isActive={activeMenu === "gestaoEPI"}
+            onClick={() => handleMenuClick("gestaoEPI")}
+          />
+          <IncendioPanicoMenu
+            isOpen={isOpen}
+            isActive={activeMenu === "incendioPanico"}
+            onClick={() => handleMenuClick("incendioPanico")}
+          />
+          <HOMenu
+            isOpen={isOpen}
+            isActive={activeMenu === "ho"}
+            onClick={() => handleMenuClick("ho")}
+          />
+          <CulturaSSOMenu
+            isOpen={isOpen}
+            isActive={activeMenu === "culturaSSO"}
+            onClick={() => handleMenuClick("culturaSSO")}
+          />
+          <PericiasMenu
+            isOpen={isOpen}
+            isActive={activeMenu === "pericias"}
+            onClick={() => handleMenuClick("pericias")}
+          />
+           <ContratadasMenu
+            isOpen={isOpen}
+            isActive={activeMenu === "contratadas"}
+            onClick={() => handleMenuClick("contratadas")}
+          />
+          <TributacaoSSOMenu
+            isOpen={isOpen}
+            isActive={activeMenu === "tributacaoSSO"}
+            onClick={() => handleMenuClick("tributacaoSSO")}
+          />
+        </List>
       </Box>
+
       {/* Botão Sair */}
       <Divider />
       <Box sx={{ padding: "5px 0" }}>

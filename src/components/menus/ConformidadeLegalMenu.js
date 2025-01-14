@@ -15,9 +15,8 @@ import {
   faGavel,
 } from "@fortawesome/free-solid-svg-icons";
 
-const ConformidadeLegalMenu = ({ isOpen }) => {
-    const [openSubmenu, setOpenSubmenu] = useState(false);
-  const [openConformidade, setOpenConformidade] = useState(false); 
+const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
+  const [openSubmenu, setOpenSubmenu] = useState(false);
   const [openRequisitos, setOpenRequisitos] = useState(false); 
   const [openDocumentos, setOpenDocumentos] = useState(false); 
   const [openDiretrizes, setOpenDiretrizes] = useState(false); 
@@ -56,27 +55,38 @@ const ConformidadeLegalMenu = ({ isOpen }) => {
   const [openOutrosRegistros, setOpenOutrosRegistros] = useState(false);  
   const [openComunicacaoInterna, setOpenComunicacaoInterna] = useState(false); 
 
-  const handleMenuClick = () => {
-    if (isOpen) {
-      setOpenSubmenu((prev) => !prev);
-    }
-  };
-
   return (
     <List disablePadding>
       {/* Menu Principal */}
       <ListItem disablePadding>
         <ListItemButton
-          onClick={handleMenuClick}
+          onClick={() => {
+            onClick(); 
+            setOpenSubmenu(!openSubmenu); 
+          }}
           sx={{
-            padding: isOpen ? "5px 10px" : "10px",
+            padding: isOpen ? "5px 5px" : "8px",
             justifyContent: isOpen ? "flex-start" : "center",
+            color: isActive ? "#0078a3" : "white",
+            backgroundColor: isActive ? "#e0f7fa" : "transparent",
+            borderRadius: "5px", 
+            margin: "5px 5px 5px 5px", 
+            width: "90%", 
+            maxWidth: "300px", 
+           "&:hover": {
+            backgroundColor: "#e0f7fa",
+            color: "#0078a3",
+            "& .MuiListItemIcon-root": {
+                color: "#0078a3",
+            },
+            },
           }}
         >
           <ListItemIcon
             sx={{
-              minWidth: "30px",
-              justifyContent: "center",
+                minWidth: "30px",
+                justifyContent: "center",
+                color: isActive ? "#0078a3" : "#fff", 
             }}
           >
             <FontAwesomeIcon icon={faGavel} style={{ fontSize: "16px" }} />
@@ -86,12 +96,18 @@ const ConformidadeLegalMenu = ({ isOpen }) => {
               <ListItemText
                 primary="Conformidade Legal"
                 primaryTypographyProps={{
-                  sx: { fontSize: "0.75rem", fontWeight: "500" },
+                    sx: {
+                        fontSize: "0.75rem",
+                        fontWeight: "500",
+                      },
                 }}
               />
               <FontAwesomeIcon
                 icon={openSubmenu ? faChevronDown : faChevronRight}
-                style={{ fontSize: "12px", marginLeft: "auto" }}
+                style={{
+                    fontSize: "12px",
+                    marginLeft: "auto",
+                  }}
               />
             </>
           )}
