@@ -34,7 +34,6 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu }) => {
   const menuItems = [
     { text: "Início", icon: faHome, link: "/", showChevron: false },
     { text: "Dashboard", icon: faBarChart, link: "/dashboard", showChevron: false },
-    { text: "Conformidade Legal", icon: faGavel, path: "/conformidade-legal" },
     { text: "GPO", icon: faCogs, link: "/gpo", showChevron: true },
     { text: "Gestão de EPI's", icon: faClipboardList, link: "/gestao-epis", showChevron: true },
     { text: "Incêndio e Pânico", icon: faFire, link: "/incendio-panico", showChevron: true },
