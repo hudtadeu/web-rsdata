@@ -268,29 +268,43 @@ const Indicadores = () => {
     <Box sx={{ padding: "16px",  mt: "-20px", }}>
       <Grid container spacing={3}>
         {data.map((item, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
-            <Card
-              sx={{
-                backgroundColor: "#fff",
-                borderRadius: "12px",
-                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-                padding: "16px",
-                height: "110px",
-                position: "relative",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                overflow: "hidden",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                "&:hover": {
-                  transform: "translateY(-8px)",
-                  boxShadow: "0 8px 20px rgba(0, 0, 0, 0.2)",
-                },
-                "&:hover .faixa": {
-                  backgroundColor: item.iconColor,
-                },
-              }}
-            >
+          <Grid
+  item
+  xs={12} // Em telas pequenas, ocupa toda a largura
+  sm={6} // Em telas médias, dois cards por linha
+  md={4} // Em telas maiores, três cards por linha
+  lg={3} // Quatro cards por linha
+  key={index}
+>
+  <Card
+    sx={{
+      backgroundColor: "#fff",
+      borderRadius: "12px",
+      boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+      padding: "16px",
+      height: "auto",
+      maxWidth: "100%",
+      position: "relative",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      overflow: "hidden",
+      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+      "&:hover": {
+        transform: "translateY(-8px)",
+        boxShadow: "0 8px 20px rgba(0, 0, 0, 0.2)",
+      },
+      // Ajustes para telas menores com media queries
+      "@media (max-width: 768px)": {
+        width: "calc(100% - 16px)", // Reduz largura para caber no grid
+        margin: "0 auto", // Centraliza
+      },
+      "@media (max-width: 480px)": {
+        width: "100%",
+        padding: "8px", // Padding reduzido em telas pequenas
+      },
+    }}
+  >
               <Box
                 className="faixa"
                 sx={{
