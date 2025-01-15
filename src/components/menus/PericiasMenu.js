@@ -12,6 +12,7 @@ import {
   faChevronRight,
   faChevronDown,
   faUsers,
+  faGavel,
 } from "@fortawesome/free-solid-svg-icons";
 
 const PericiasMenu = ({ isOpen, isActive, onClick }) => {
@@ -52,7 +53,7 @@ const PericiasMenu = ({ isOpen, isActive, onClick }) => {
               color: isActive ? "#0078a3" : "white",
             }}
           >
-            <FontAwesomeIcon icon={faUsers} style={{ fontSize: "16px" }} />
+            <FontAwesomeIcon icon={faGavel} style={{ fontSize: "16px" }} />
           </ListItemIcon>
           {isOpen && (
             <>

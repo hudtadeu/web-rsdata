@@ -11,8 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
   faChevronDown,
-  faClipboard,
-  faGavel,
+  faBalanceScale,
 } from "@fortawesome/free-solid-svg-icons";
 
 const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
@@ -89,7 +88,7 @@ const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
                 color: isActive ? "#0078a3" : "#fff", 
             }}
           >
-            <FontAwesomeIcon icon={faGavel} style={{ fontSize: "16px" }} />
+            <FontAwesomeIcon icon={faBalanceScale} style={{ fontSize: "16px" }} />
           </ListItemIcon>
           {isOpen && (
             <>

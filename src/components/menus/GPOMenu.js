@@ -11,8 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
   faChevronDown,
-
-  faCogs,
+  faProjectDiagram,
 } from "@fortawesome/free-solid-svg-icons";
 
 const GPOMenu = ({ isOpen, isActive, onClick }) => {
@@ -74,7 +73,7 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
                 color: isActive ? "#0078a3" : "white",
             }}
           >
-            <FontAwesomeIcon icon={faCogs} style={{ fontSize: "16px" }} />
+            <FontAwesomeIcon icon={faProjectDiagram} style={{ fontSize: "16px" }} />
           </ListItemIcon>
           {isOpen && (
             <>

@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
   faChevronDown,
-  faBook,
+  faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 
 const CulturaSSOMenu = ({ isOpen, isActive, onClick }) => {
@@ -52,7 +52,7 @@ const CulturaSSOMenu = ({ isOpen, isActive, onClick }) => {
           color: isActive ? "#0078a3" : "white",
         }}
       >
-        <FontAwesomeIcon icon={faBook} style={{ fontSize: "16px" }} />
+        <FontAwesomeIcon icon={faUsers} style={{ fontSize: "16px" }} />
       </ListItemIcon>
       {isOpen && (
         <>

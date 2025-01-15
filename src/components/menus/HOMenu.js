@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
   faChevronDown,
-  faBuilding,
+  faHeartbeat,
 } from "@fortawesome/free-solid-svg-icons";
 
 const HOMenu = ({ isOpen, isActive, onClick }) => {
@@ -69,7 +69,7 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
               color: isActive ? "#0078a3" : "white",
             }}
           >
-            <FontAwesomeIcon icon={faBuilding} style={{ fontSize: "16px" }} />
+            <FontAwesomeIcon icon={faHeartbeat} style={{ fontSize: "16px" }} />
           </ListItemIcon>
           {isOpen && (
             <>

@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
   faChevronDown,
-  faFileInvoice,
+  faHandshake,
 } from "@fortawesome/free-solid-svg-icons";
 
 const ContratadasMenu = ({ isOpen, isActive, onClick }) => {
@@ -56,7 +56,7 @@ const ContratadasMenu = ({ isOpen, isActive, onClick }) => {
               color: isActive ? "#0078a3" : "white",
             }}
           >
-            <FontAwesomeIcon icon={faFileInvoice} style={{ fontSize: "16px" }} />
+            <FontAwesomeIcon icon={faHandshake} style={{ fontSize: "16px" }} />
           </ListItemIcon>
           {isOpen && (
             <>

@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
   faChevronDown,
-  faGavel,
+  faReceipt,
 } from "@fortawesome/free-solid-svg-icons";
 
 const TributacaoSSOMenu = ({ isOpen, isActive, onClick }) => {
@@ -53,7 +53,7 @@ const TributacaoSSOMenu = ({ isOpen, isActive, onClick }) => {
               color: isActive ? "#0078a3" : "white",
             }}
           >
-            <FontAwesomeIcon icon={faGavel} style={{ fontSize: "16px" }} />
+            <FontAwesomeIcon icon={faReceipt} style={{ fontSize: "16px" }} />
           </ListItemIcon>
           {isOpen && (
             <>
