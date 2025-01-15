@@ -91,7 +91,6 @@ const CulturaSSOMenu = ({ isOpen, isActive, onClick }) => {
           </ListItem>
           <Collapse in={openPlanejamento} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                 <ListItemButton sx={{ padding: "3px 10px" }}>
                 <ListItemText
@@ -144,8 +143,6 @@ const CulturaSSOMenu = ({ isOpen, isActive, onClick }) => {
                       />
                     </ListItemButton>
                    </ListItem>
-                                                          
-              {/* Indicadores */}
           <ListItem disablePadding>
             <ListItemButton
               onClick={() => setOpenCampanhasSSO(!openCampanhasSSO)}
@@ -165,7 +162,6 @@ const CulturaSSOMenu = ({ isOpen, isActive, onClick }) => {
           </ListItem>
           <Collapse in={openCampanhasSSO} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                         <ListItemButton sx={{ padding: "3px 10px" }}>
                         <ListItemText

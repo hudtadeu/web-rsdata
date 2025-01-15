@@ -56,7 +56,6 @@ const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
 
   return (
     <List disablePadding>
-      {/* Menu Principal */}
       <ListItem disablePadding>
         <ListItemButton
           onClick={() => {
@@ -114,7 +113,6 @@ const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
       </ListItem>
       <Collapse in={openSubmenu && isOpen} timeout="auto" unmountOnExit>
         <List disablePadding sx={{ paddingLeft: "15px" }}>
-          {/* Requisitos Legais */}
           <ListItem disablePadding>
             <ListItemButton
               onClick={() => setOpenRequisitos(!openRequisitos)}
@@ -144,7 +142,6 @@ const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
                   />
                 </ListItemButton>
               </ListItem>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                 <ListItemButton
                   onClick={() => setOpenDocumentos(!openDocumentos)}
@@ -162,7 +159,6 @@ const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
                   />
                 </ListItemButton>
               </ListItem>
-              {/* Itens dentro de Documentos Legais */}
               <Collapse in={openDocumentos} timeout="auto" unmountOnExit>
                     <List disablePadding sx={{ paddingLeft: "15px" }}>
                         <ListItem disablePadding>

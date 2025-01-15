@@ -24,7 +24,6 @@ const ContratadasMenu = ({ isOpen, isActive, onClick }) => {
 
   return (
     <List disablePadding>
-      {/* Menu Principal */}
       <ListItem disablePadding>
         <ListItemButton
             onClick={() => {
@@ -290,7 +289,6 @@ const ContratadasMenu = ({ isOpen, isActive, onClick }) => {
           </ListItem>
           <Collapse in={openDesmobilizacao} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                         <ListItemButton sx={{ padding: "3px 10px" }}>
                         <ListItemText

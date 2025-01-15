@@ -11,7 +11,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
   faChevronDown,
-  faUsers,
   faGavel,
 } from "@fortawesome/free-solid-svg-icons";
 

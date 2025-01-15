@@ -41,7 +41,6 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
 
   return (
     <List disablePadding>
-      {/* Menu Principal */}
       <ListItem disablePadding>
       <ListItemButton
         onClick={() => {
@@ -93,7 +92,6 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
       </ListItem>
       <Collapse in={openSubmenu && isOpen} timeout="auto" unmountOnExit>
         <List disablePadding sx={{ paddingLeft: "15px" }}>
-          {/* Requisitos Legais */}
           <ListItem disablePadding>
             <ListItemButton
               onClick={() => setOpenPerigosOcupacionais(!openPerigosOcupacionais)}
@@ -113,7 +111,6 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
           </ListItem>
           <Collapse in={openPerigosOcupacionais} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                 <ListItemButton
                   onClick={() => setOpenReconRiscos(!openReconRiscos)}
@@ -131,7 +128,6 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
                   />
                 </ListItemButton>
               </ListItem>
-              {/* Itens dentro de Documentos Legais */}
               <Collapse in={openReconRiscos} timeout="auto" unmountOnExit>
                     <List disablePadding sx={{ paddingLeft: "15px" }}>
                     <ListItem disablePadding>
@@ -1055,8 +1051,6 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
                         </Collapse>
                     </List>
                     </Collapse>
-
-              {/* Indicadores */}
               <ListItem disablePadding>
                 <ListItemButton sx={{ padding: "3px 10px" }}>
                   <ListItemText

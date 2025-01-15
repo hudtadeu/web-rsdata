@@ -21,7 +21,6 @@ const TributacaoSSOMenu = ({ isOpen, isActive, onClick }) => {
 
   return (
     <List disablePadding>
-      {/* Menu Principal */}
       <ListItem disablePadding>
       <ListItemButton
       onClick={() => {

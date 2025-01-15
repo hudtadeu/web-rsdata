@@ -22,7 +22,6 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
 
   return (
     <List disablePadding>
-      {/* Menu Principal */}
       <ListItem disablePadding>
       <ListItemButton
       onClick={() => {
@@ -156,7 +155,6 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
                     </ListItem>
                     </List>
           </Collapse>
-              {/* Indicadores */}
               <ListItem disablePadding>
          <ListItemButton sx={{ padding: "3px 10px" }}>
           <ListItemText
@@ -196,7 +194,6 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
           </ListItem>
           <Collapse in={openPro} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                         <ListItemButton sx={{ padding: "3px 10px" }}>
                         <ListItemText

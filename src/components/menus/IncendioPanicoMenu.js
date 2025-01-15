@@ -23,7 +23,6 @@ const IncendioPanicoMenu = ({ isOpen,isActive, onClick }) => {
 
   return (
     <List disablePadding>
-      {/* Menu Principal */}
       <ListItem disablePadding>
       <ListItemButton
       onClick={() => {
@@ -94,7 +93,6 @@ const IncendioPanicoMenu = ({ isOpen,isActive, onClick }) => {
           </ListItem>
           <Collapse in={openDocumentacao} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                         <ListItemButton sx={{ padding: "3px 10px" }}>
                         <ListItemText
@@ -127,7 +125,6 @@ const IncendioPanicoMenu = ({ isOpen,isActive, onClick }) => {
                     </ListItem>
                     </List>
           </Collapse>
-              {/* Indicadores */}
           <ListItem disablePadding>
             <ListItemButton
               onClick={() => setOpenMonitoramento(!openMonitoramento)}
@@ -147,7 +144,6 @@ const IncendioPanicoMenu = ({ isOpen,isActive, onClick }) => {
           </ListItem>
           <Collapse in={openMonitoramento} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                         <ListItemButton sx={{ padding: "3px 10px" }}>
                         <ListItemText
@@ -177,7 +173,6 @@ const IncendioPanicoMenu = ({ isOpen,isActive, onClick }) => {
           </ListItem>
           <Collapse in={openBrigadaEmergencia} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                         <ListItemButton sx={{ padding: "3px 10px" }}>
                         <ListItemText
@@ -229,7 +224,6 @@ const IncendioPanicoMenu = ({ isOpen,isActive, onClick }) => {
           </ListItem>
           <Collapse in={openEquipaCombate} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                         <ListItemButton sx={{ padding: "3px 10px" }}>
                         <ListItemText

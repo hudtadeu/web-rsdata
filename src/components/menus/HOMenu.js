@@ -37,7 +37,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
 
   return (
     <List disablePadding>
-      {/* Menu Principal */}
       <ListItem disablePadding>
       <ListItemButton
       onClick={() => {
@@ -108,7 +107,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
           </ListItem>
           <Collapse in={openRegistrosRiscos} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                 <ListItemButton sx={{ padding: "3px 10px" }}>
                 <ListItemText
@@ -160,7 +158,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
           </ListItem>
           <Collapse in={openMonitoramentoRiscos} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
             <ListItemButton
               onClick={() => setOpenPlanoTrabalho(!openPlanoTrabalho)}
@@ -180,7 +177,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
           </ListItem>
           <Collapse in={openPlanoTrabalho} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                 <ListItemButton sx={{ padding: "3px 10px" }}>
                 <ListItemText
@@ -212,7 +208,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
                 </ListItem>
                 <Collapse in={openControleRiscos} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                     <ListItemButton
                     onClick={() => setOpenHOLocal(!openHOLocal)}
@@ -232,7 +227,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
                 </ListItem>
                 <Collapse in={openHOLocal} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                 <ListItemButton sx={{ padding: "3px 10px" }}>
                 <ListItemText
@@ -282,7 +276,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
                 </ListItem>
                 <Collapse in={openVibracoes} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                 <ListItemButton sx={{ padding: "3px 10px" }}>
                 <ListItemText
@@ -336,7 +329,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
                 </ListItem>
                 <Collapse in={openAmbiental} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                 <ListItemButton sx={{ padding: "3px 10px" }}>
                 <ListItemText
@@ -388,7 +380,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
                 </ListItem>
                 <Collapse in={openHOProjetos} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                 <ListItemButton sx={{ padding: "3px 10px" }}>
                 <ListItemText
@@ -438,7 +429,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
                 </ListItem>
                 <Collapse in={openVibracoesA} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                 <ListItemButton sx={{ padding: "3px 10px" }}>
                 <ListItemText
@@ -490,7 +480,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
                 </ListItem>
                 <Collapse in={openAmbientalA} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                 <ListItemButton sx={{ padding: "3px 10px" }}>
                 <ListItemText
@@ -544,7 +533,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
                 </ListItem>
                 <Collapse in={openHOTerceiros} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                 <ListItemButton sx={{ padding: "3px 10px" }}>
                 <ListItemText
@@ -594,7 +582,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
                 </ListItem>
                 <Collapse in={openVibracoesB} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                 <ListItemButton sx={{ padding: "3px 10px" }}>
                 <ListItemText
@@ -646,7 +633,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
                 </ListItem>
                 <Collapse in={openAmbientalB} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                 <ListItemButton sx={{ padding: "3px 10px" }}>
                 <ListItemText
@@ -724,7 +710,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
           </ListItem>
           <Collapse in={openInventarioProdutos} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                         <ListItemButton sx={{ padding: "3px 10px" }}>
                         <ListItemText
@@ -766,7 +751,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
           </ListItem>
           <Collapse in={openFISPQ} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                         <ListItemButton sx={{ padding: "3px 10px" }}>
                         <ListItemText
@@ -815,7 +799,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
               sx={{ padding: "4px 10px" }}
             >
               <ListItemText
-                primary="Documentos Legais"
                 primaryTypographyProps={{
                   sx: { fontSize: "0.75rem", fontWeight: "400" },
                 }}
@@ -828,7 +811,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
           </ListItem>
           <Collapse in={openDocumentosLegais} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                         <ListItemButton sx={{ padding: "3px 10px" }}>
                         <ListItemText
@@ -870,7 +852,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
           </ListItem>
           <Collapse in={openEquipaHigiene} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                         <ListItemButton sx={{ padding: "3px 10px" }}>
                         <ListItemText
@@ -932,7 +913,6 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
           </ListItem>
           <Collapse in={openLaudos} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              {/* Documentos Legais */}
               <ListItem disablePadding>
                         <ListItemButton sx={{ padding: "3px 10px" }}>
                         <ListItemText
