@@ -1,17 +1,72 @@
 import React from 'react';
 import { Grid, Paper, Typography, Avatar } from '@mui/material';
-import { Assignment, Work, LocalFireDepartment, AccountBalance, Gavel, GroupWork, MonetizationOn } from '@mui/icons-material';
+import { 
+  FaBalanceScale, 
+  FaProjectDiagram, 
+  FaHardHat, 
+  FaFireExtinguisher, 
+  FaHeartbeat, 
+  FaUsers, 
+  FaGavel, 
+  FaHandshake, 
+  FaReceipt 
+} from 'react-icons/fa';
 
 const dashboardData = [
-  { title: 'Conformidade Legal', icon: <Assignment />, color: '#00bfa5', description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' },
-  { title: 'GPO', icon: <Work />, color: '#26c6da', description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' },
-  { title: 'Gestão de EPI\'s', icon: <Work />, color: '#43a047', description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' },
-  { title: 'Incêndio e Pânico', icon: <LocalFireDepartment />, color: '#66bb6a', description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' },
-  { title: 'HO', icon: <AccountBalance />, color: '#ffd54f', description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' },
-  { title: 'Cultura SSO', icon: <Gavel />, color: '#ff7043', description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' },
-  { title: 'Perícias e Demandas Judiciais', icon: <GroupWork />, color: '#ef5350', description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' },
-  { title: 'Contratadas', icon: <MonetizationOn />, color: '#ec407a', description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' },
-  { title: 'Tributação SSO', icon: <MonetizationOn />, color: '#9c27b0', description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' },
+  { 
+    title: 'Conformidade Legal', 
+    icon: <FaBalanceScale />, 
+    color: '#00bfa5', 
+    description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' 
+  },
+  { 
+    title: 'GPO', 
+    icon: <FaProjectDiagram />, 
+    color: '#26c6da', 
+    description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' 
+  },
+  { 
+    title: 'Gestão de EPI\'s', 
+    icon: <FaHardHat />, 
+    color: '#43a047', 
+    description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' 
+  },
+  { 
+    title: 'Incêndio e Pânico', 
+    icon: <FaFireExtinguisher />, 
+    color: '#66bb6a', 
+    description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' 
+  },
+  { 
+    title: 'HO', 
+    icon: <FaHeartbeat />, 
+    color: '#ffd54f', 
+    description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' 
+  },
+  { 
+    title: 'Cultura SSO', 
+    icon: <FaUsers />, 
+    color: '#ff7043', 
+    description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' 
+  },
+  { 
+    title: 'Perícias e Demandas Judiciais', 
+    icon: <FaGavel />, 
+    color: '#ef5350', 
+    description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' 
+  },
+  { 
+    title: 'Contratadas', 
+    icon: <FaHandshake />, 
+    color: '#ec407a', 
+    description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' 
+  },
+  { 
+    title: 'Tributação SSO', 
+    icon: <FaReceipt />, 
+    color: '#9c27b0', 
+    description: 'Gerenciar os Equipamentos de Proteção Individual e Coletiva, quanto à aplicabilidade, monitoramento do uso e validação e testes dos novos equipamentos.' 
+  },
 ];
 
 const Dashboard = () => {

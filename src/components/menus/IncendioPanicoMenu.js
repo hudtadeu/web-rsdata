@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
   faChevronDown,
-  faFire,
+  faFireExtinguisher,
 } from "@fortawesome/free-solid-svg-icons";
 
 const IncendioPanicoMenu = ({ isOpen,isActive, onClick }) => {
@@ -55,7 +55,7 @@ const IncendioPanicoMenu = ({ isOpen,isActive, onClick }) => {
               color: isActive ? "#0078a3" : "white",
             }}
           >
-            <FontAwesomeIcon icon={faFire} style={{ fontSize: "16px" }} />
+            <FontAwesomeIcon icon={faFireExtinguisher} style={{ fontSize: "16px" }} />
           </ListItemIcon>
           {isOpen && (
             <>
