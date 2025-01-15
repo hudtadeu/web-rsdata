@@ -27,11 +27,11 @@ import TributacaoSSOMenu from "./menus/TributacaoSSOMenu";
 import ContratadasMenu from "./menus/ContratadasMenu";
 import HOMenu from "./menus/HOMenu";
 
-const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu }) => {
+const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu, onLogout }) => {
   const [activeMenu, setActiveMenu] = useState(null); 
 
   const menuItems = [
-    { id: "inicio", text: "Início", icon: faHome, link: "/" },
+    { id: "inicio", text: "Início", icon: faHome, link: "/inicio" },
     { id: "dashboard", text: "Dashboard", icon: faBarChart, link: "/dashboard" },
   ];
 
@@ -224,8 +224,8 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu }) => {
       <Divider />
       <Box sx={{ padding: "5px 0" }}>
         <ListItem disablePadding>
-          <ListItemButton
-            onClick={() => alert("Você saiu!")}
+        <ListItemButton
+            onClick={onLogout} // Chama a função de logout passada como prop
             sx={{
               borderRadius: "4px",
               transition: "all 0.3s ease",

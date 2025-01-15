@@ -69,7 +69,7 @@ const dashboardData = [
   },
 ];
 
-const Dashboard = () => {
+const Inicio = () => {
   return (
     <Grid container spacing={3} sx={{ padding: 3 }}>
       {dashboardData.map((item, index) => (
@@ -95,4 +95,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Inicio;
