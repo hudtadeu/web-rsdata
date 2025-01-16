@@ -290,7 +290,7 @@ const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
                             sx={{ padding: "3px 10px" }}
                         >
                             <ListItemText
-                            primary="Laudos"
+                            primary="Laudo"
                             primaryTypographyProps={{
                                 sx: { fontSize: "0.75rem", fontWeight: "400" },
                             }}
