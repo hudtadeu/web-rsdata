@@ -249,7 +249,7 @@ const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
                                 />
                             </ListItemButton>
                             </ListItem>
-							            </List>
+							</List>
                         </Collapse>
                             <ListItem disablePadding>
                             <ListItemButton 

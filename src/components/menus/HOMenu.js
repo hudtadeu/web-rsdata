@@ -73,7 +73,7 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
           {isOpen && (
             <>
               <ListItemText
-                primary="HO"
+                primary="Higiene Ocupacional"
                 primaryTypographyProps={{
                   sx: { fontSize: "0.75rem", fontWeight: "500" },
                 }}
