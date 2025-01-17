@@ -100,7 +100,6 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu, onLogo
               style={{
                 width: "30px",
                 height: "auto",
-                marginBottom: "-20px",
               }}
             />
           )}
