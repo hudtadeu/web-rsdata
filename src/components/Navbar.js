@@ -55,7 +55,7 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu, onLogo
           borderRadius: "0px 10px 10px 0px",
           boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
           transition: "width 0.3s ease",
-          overflowX: "hidden",
+          overflowX: "visible", 
           overflowY: "auto",
           "&::-webkit-scrollbar": {
             width: "8px",
@@ -224,7 +224,7 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu, onLogo
       <Box sx={{ padding: "5px 0" }}>
         <ListItem disablePadding>
         <ListItemButton
-            onClick={onLogout} // Chama a função de logout passada como prop
+            onClick={onLogout} 
             sx={{
               borderRadius: "4px",
               transition: "all 0.3s ease",

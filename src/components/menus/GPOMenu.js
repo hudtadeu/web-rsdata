@@ -13,6 +13,7 @@ import {
   faChevronDown,
   faProjectDiagram,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const GPOMenu = ({ isOpen, isActive, onClick }) => {
   const [openSubmenu, setOpenSubmenu] = useState(false);
@@ -179,7 +180,10 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
                         <Collapse in={openLiberaTrabalhos} timeout="auto" unmountOnExit>
                         <List disablePadding sx={{ paddingLeft: "15px" }}>
                         <ListItem disablePadding>
-                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                            <ListItemButton 
+                                component={Link}
+                                to="/analise-preliminar-riscos"
+                                sx={{ padding: "3px 10px" }}>
                                 <ListItemText
                                 primary="APR - Análise Preliminar de Riscos"
                                 primaryTypographyProps={{
@@ -536,7 +540,8 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
                             </ListItemButton>
                             </ListItem>
                             <ListItem disablePadding>
-                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                            <ListItemButton
+                                sx={{ padding: "3px 10px" }}>
                                 <ListItemText
                                 primary="APR"
                                 primaryTypographyProps={{

@@ -5,6 +5,9 @@ import TopNavbar from "./components/TopNavbar";
 import Inicio from "./components/dashboard/Inicio";
 import Dashboard from "./components/indicadores/Dashboard";
 import Login from "./components/login/Login";
+import LegalRequisitosPage from "./components/pages/LegaisRequisitosPage";
+import OrdemServicoElaboracao from "./components/pages/OrdemServicoElaboracao";
+import AnalisePreliminarRisco from "./components/pages/AnalisePreliminarRisco";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -60,6 +63,9 @@ function App() {
                 <>
                   <Route path="/inicio" element={<Inicio />} />
                   <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/requisitos-legais" element={<LegalRequisitosPage />} />
+                  <Route path="/ordem-servico-elaboracao" element={<OrdemServicoElaboracao />} />
+                  <Route path="/analise-preliminar-riscos" element={<AnalisePreliminarRisco />} />
                   <Route path="*" element={<Navigate to="/inicio" replace />} />
                 </>
               )}

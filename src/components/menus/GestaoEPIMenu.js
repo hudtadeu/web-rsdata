@@ -14,7 +14,7 @@ import {
   faHardHat,
 } from "@fortawesome/free-solid-svg-icons";
 
-const GPOMenu = ({ isOpen, isActive, onClick }) => {
+const GestaoEPIMenu= ({ isOpen, isActive, onClick }) => {
   const [openSubmenu, setOpenSubmenu] = useState(false);
   const [openMonitoramentoEPIs, setOpenMonitoramentoEPIs] = useState(false); 
   const [openPro, setOpenPro] = useState(false); 
@@ -212,4 +212,4 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
   );
 };
 
-export default GPOMenu;
+export default GestaoEPIMenu;

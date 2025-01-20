@@ -13,6 +13,7 @@ import {
   faChevronDown,
   faBalanceScale,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
   const [openSubmenu, setOpenSubmenu] = useState(false);
@@ -132,16 +133,20 @@ const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
           </ListItem>
           <Collapse in={openRequisitos} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
-              <ListItem disablePadding>
-                <ListItemButton sx={{ padding: "3px 10px" }}>
-                  <ListItemText
-                    primary="Mapeamento dos requisitos legais"
-                    primaryTypographyProps={{
-                      sx: { fontSize: "0.75rem", fontWeight: "400" },
-                    }}
-                  />
-                </ListItemButton>
-              </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton
+              component={Link}
+              to="/requisitos-legais"
+              sx={{ padding: "4px 10px" }}
+            >
+              <ListItemText
+                primary="Mapeamento dos Requisitos Legais"
+                primaryTypographyProps={{
+                  sx: { fontSize: "0.75rem", fontWeight: "400" },
+                }}
+              />
+            </ListItemButton>
+          </ListItem>
               <ListItem disablePadding>
                 <ListItemButton
                   onClick={() => setOpenDocumentos(!openDocumentos)}
@@ -1247,7 +1252,10 @@ const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
                             <Collapse in={openOrdemServicos} timeout="auto" unmountOnExit>
                         <List disablePadding sx={{ paddingLeft: "15px" }}>
                             <ListItem disablePadding>
-                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                            <ListItemButton 
+                                component={Link}
+                                to="/ordem-servico-elaboracao"
+                                sx={{ padding: "3px 10px" }}>
                                 <ListItemText
                                 primary="Elaboração"
                                 primaryTypographyProps={{
