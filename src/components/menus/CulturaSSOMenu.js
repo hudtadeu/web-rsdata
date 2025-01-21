@@ -13,6 +13,7 @@ import {
   faChevronDown,
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const CulturaSSOMenu = ({ isOpen, isActive, onClick }) => {
   const [openSubmenu, setOpenSubmenu] = useState(false);
@@ -114,7 +115,10 @@ const CulturaSSOMenu = ({ isOpen, isActive, onClick }) => {
                     </List>
                  </Collapse>
                         <ListItem disablePadding>
-                   <ListItemButton sx={{ padding: "3px 10px" }}>
+                   <ListItemButton    
+                    component={Link}
+                    to="/registro-dds"
+                    sx={{ padding: "3px 10px" }}>
                     <ListItemText
                        primary="DDS / DSS"
                         primaryTypographyProps={{
@@ -195,7 +199,10 @@ const CulturaSSOMenu = ({ isOpen, isActive, onClick }) => {
                </List>
             </Collapse>
                <ListItem disablePadding>
-                  <ListItemButton sx={{ padding: "3px 10px" }}>
+                  <ListItemButton 
+                    component={Link}
+                    to="/pesquisa-satisfacao"
+                    sx={{ padding: "3px 10px" }}>
                    <ListItemText
                       primary="Pesquisa de Satisfação"
                       primaryTypographyProps={{

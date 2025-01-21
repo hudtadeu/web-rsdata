@@ -867,7 +867,10 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
                             <Collapse in={openAuditoriasConformidade} timeout="auto" unmountOnExit>
                         <List disablePadding sx={{ paddingLeft: "15px" }}>
                         <ListItem disablePadding>
-                            <ListItemButton sx={{ padding: "3px 10px" }}>
+                            <ListItemButton 
+                                component={Link}
+                                to="/auditoria-conformidade-interna"
+                                sx={{ padding: "3px 10px" }}>
                                 <ListItemText
                                 primary="Interna"
                                 primaryTypographyProps={{

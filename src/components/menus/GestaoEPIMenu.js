@@ -13,6 +13,7 @@ import {
   faChevronDown,
   faHardHat,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const GestaoEPIMenu= ({ isOpen, isActive, onClick }) => {
   const [openSubmenu, setOpenSubmenu] = useState(false);
@@ -144,7 +145,10 @@ const GestaoEPIMenu= ({ isOpen, isActive, onClick }) => {
                         </ListItemButton>
                     </ListItem>
                     <ListItem disablePadding>
-                        <ListItemButton sx={{ padding: "3px 10px" }}>
+                        <ListItemButton 
+                        component={Link}
+                        to="/teste-aprovacao-novos-epis"
+                        sx={{ padding: "3px 10px" }}>
                         <ListItemText
                             primary="Registro de Teste e Aprovação de Novos EPIs"
                             primaryTypographyProps={{

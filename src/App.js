@@ -8,6 +8,10 @@ import Login from "./components/login/Login";
 import LegalRequisitosPage from "./components/pages/LegaisRequisitosPage";
 import OrdemServicoElaboracao from "./components/pages/OrdemServicoElaboracao";
 import AnalisePreliminarRisco from "./components/pages/AnalisePreliminarRisco";
+import AuditoriaConformidadeInterna from "./components/pages/AuditoriaConformidadeInterna";
+import TesteAprovacaoNovosEpis from "./components/pages/TesteAprovacaoNovosEpis";
+import RegistroDds from "./components/pages/RegistroDds";
+import PesquisaSatisfacao from "./components/pages/PesquisaSatisfacao";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -66,6 +70,10 @@ function App() {
                   <Route path="/requisitos-legais" element={<LegalRequisitosPage />} />
                   <Route path="/ordem-servico-elaboracao" element={<OrdemServicoElaboracao />} />
                   <Route path="/analise-preliminar-riscos" element={<AnalisePreliminarRisco />} />
+                  <Route path="/auditoria-conformidade-interna" element={<AuditoriaConformidadeInterna />} />
+                  <Route path="/teste-aprovacao-novos-epis" element={<TesteAprovacaoNovosEpis />} />
+                  <Route path="/pesquisa-satisfacao" element={<PesquisaSatisfacao />} />
+                  <Route path="/registro-dds" element={<RegistroDds />} />
                   <Route path="*" element={<Navigate to="/inicio" replace />} />
                 </>
               )}
