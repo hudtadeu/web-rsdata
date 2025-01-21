@@ -4,9 +4,6 @@ import { Box, TextField, Grid, Button, Table, TableBody, TableCell, TableContain
 const PesquisaSatisfacao = () => {
   return (
     <>
-      <Typography variant="h4" sx={{ fontWeight: "bold", marginBottom: 3 }}>
-        Avaliação e Desempenho em SSO
-      </Typography>
       <Container style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', padding: '16px', borderRadius: '8px' }}>
         <form>
           <Grid container spacing={3}>

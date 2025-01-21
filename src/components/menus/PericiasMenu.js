@@ -13,6 +13,7 @@ import {
   faChevronDown,
   faGavel,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const PericiasMenu = ({ isOpen, isActive, onClick }) => {
   const [openSubmenu, setOpenSubmenu] = useState(false);
@@ -127,7 +128,10 @@ const PericiasMenu = ({ isOpen, isActive, onClick }) => {
                     <Collapse in={openJudiciais} timeout="auto" unmountOnExit>
             <List disablePadding sx={{ paddingLeft: "15px" }}>
               <ListItem disablePadding>
-                        <ListItemButton sx={{ padding: "3px 10px" }}>
+                        <ListItemButton 
+                          component={Link}
+                          to="/judiciais-trabalhista"
+                          sx={{ padding: "3px 10px" }}>
                         <ListItemText
                             primary="Trabalhista*"
                             primaryTypographyProps={{
@@ -137,7 +141,10 @@ const PericiasMenu = ({ isOpen, isActive, onClick }) => {
                         </ListItemButton>
                     </ListItem>
                     <ListItem disablePadding>
-                        <ListItemButton sx={{ padding: "3px 10px" }}>
+                        <ListItemButton 
+                          component={Link}
+                          to="/judiciais-previdenciaria"
+                          sx={{ padding: "3px 10px" }}>
                         <ListItemText
                             primary="Previdenciaria*"
                             primaryTypographyProps={{
