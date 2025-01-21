@@ -5,31 +5,31 @@ const JudiciaisTrabalhista = () => {
   return (
     <>
       <Container style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', padding: '16px', borderRadius: '8px' }}>
-        <Typography variant="h4" sx={{ fontWeight: "bold", marginBottom: 3 }}>
+        <Typography fontSize="1.5rem" sx={{ fontWeight: "bold", marginBottom: 3 }}>
           Laudo Pericial
         </Typography>
         <form>
           <Grid container spacing={3} direction="column">
             <Grid item xs={12}>
-              <TextField label="Objetivos" fullWidth size="small" multiline rows={4} InputLabelProps={{ style: { fontSize: '0.8rem' } }} />
+              <TextField label="Objetivos" fullWidth size="small" multiline rows={3} InputLabelProps={{ style: { fontSize: '0.8rem' } }} />
             </Grid>
             <Grid item xs={12}>
-              <TextField label="Condições Preliminares" fullWidth size="small" multiline rows={4} InputLabelProps={{ style: { fontSize: '0.8rem' } }} />
+              <TextField label="Condições Preliminares" fullWidth size="small" multiline rows={3} InputLabelProps={{ style: { fontSize: '0.8rem' } }} />
             </Grid>
             <Grid item xs={12}>
-              <TextField label="As atividades e condições de trabalho do reclamante" fullWidth size="small" multiline rows={4} InputLabelProps={{ style: { fontSize: '0.8rem' } }} />
+              <TextField label="As atividades e condições de trabalho do reclamante" fullWidth size="small" multiline rows={3} InputLabelProps={{ style: { fontSize: '0.8rem' } }} />
             </Grid>
             <Grid item xs={12}>
-              <TextField label="Caracterização técnica da atividade" fullWidth size="small" multiline rows={4} InputLabelProps={{ style: { fontSize: '0.8rem' } }} />
+              <TextField label="Caracterização técnica da atividade" fullWidth size="small" multiline rows={3} InputLabelProps={{ style: { fontSize: '0.8rem' } }} />
             </Grid>
             <Grid item xs={12}>
-              <TextField label="Aparelhagem Utilizada" fullWidth size="small" multiline rows={4} InputLabelProps={{ style: { fontSize: '0.8rem' } }} />
+              <TextField label="Aparelhagem Utilizada" fullWidth size="small" multiline rows={3} InputLabelProps={{ style: { fontSize: '0.8rem' } }} />
             </Grid>
             <Grid item xs={12}>
-              <TextField label="Respostas aos quesitos" fullWidth size="small" multiline rows={4} InputLabelProps={{ style: { fontSize: '0.8rem' } }} />
+              <TextField label="Respostas aos quesitos" fullWidth size="small" multiline rows={3} InputLabelProps={{ style: { fontSize: '0.8rem' } }} />
             </Grid>
             <Grid item xs={12}>
-              <TextField label="Conclusão" fullWidth size="small" multiline rows={4} InputLabelProps={{ style: { fontSize: '0.8rem' } }} />
+              <TextField label="Conclusão" fullWidth size="small" multiline rows={3} InputLabelProps={{ style: { fontSize: '0.8rem' } }} />
             </Grid>
             <Grid item xs={12}>
               <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2 }}>

@@ -90,7 +90,7 @@ const GestaoEPIMenu= ({ isOpen, isActive, onClick }) => {
               sx={{ padding: "4px 10px" }}
             >
               <ListItemText
-                primary="Monitoramento dos EPIs"
+                primary="Monitoramento dos EPIs*"
                 primaryTypographyProps={{
                   sx: { fontSize: "0.75rem", fontWeight: "400" },
                 }}
@@ -150,7 +150,7 @@ const GestaoEPIMenu= ({ isOpen, isActive, onClick }) => {
                         to="/teste-aprovacao-novos-epis"
                         sx={{ padding: "3px 10px" }}>
                         <ListItemText
-                            primary="Registro de Teste e Aprovação de Novos EPIs"
+                            primary="Registro de Teste e Aprovação de Novos EPIs*"
                             primaryTypographyProps={{
                             sx: { fontSize: "0.75rem", fontWeight: "400" },
                             }}

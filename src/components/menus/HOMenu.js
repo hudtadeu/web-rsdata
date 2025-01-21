@@ -799,6 +799,7 @@ const HOMenu = ({ isOpen, isActive, onClick }) => {
               sx={{ padding: "4px 10px" }}
             >
               <ListItemText
+                primary="Documentos Legais"
                 primaryTypographyProps={{
                   sx: { fontSize: "0.75rem", fontWeight: "400" },
                 }}

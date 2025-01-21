@@ -99,7 +99,7 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
               sx={{ padding: "4px 10px" }}
             >
               <ListItemText
-                primary="Perigos Ocupacionais"
+                primary="Perigos Ocupacionais*"
                 primaryTypographyProps={{
                   sx: { fontSize: "0.75rem", fontWeight: "400" },
                 }}
@@ -118,7 +118,7 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
                   sx={{ padding: "3px 10px" }}
                 >
                   <ListItemText
-                    primary="Reconhecimento e Controle dos Riscos"
+                    primary="Reconhecimento e Controle dos Riscos*"
                     primaryTypographyProps={{
                       sx: { fontSize: "0.75rem", fontWeight: "400" },
                     }}
@@ -147,7 +147,7 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
                             sx={{ padding: "3px 10px" }}
                         >
                             <ListItemText
-                            primary="Identificação e Controle dos Riscos"
+                            primary="Identificação e Controle dos Riscos*"
                             primaryTypographyProps={{
                                 sx: { fontSize: "0.75rem", fontWeight: "400" },
                             }}
@@ -166,7 +166,7 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
                             sx={{ padding: "3px 10px" }}
                         >
                             <ListItemText
-                            primary="Liberação de Trabalhos"
+                            primary="Liberação de Trabalhos*"
                             primaryTypographyProps={{
                                 sx: { fontSize: "0.75rem", fontWeight: "400" },
                             }}
@@ -185,7 +185,7 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
                                 to="/analise-preliminar-riscos"
                                 sx={{ padding: "3px 10px" }}>
                                 <ListItemText
-                                primary="APR - Análise Preliminar de Riscos"
+                                primary="APR - Análise Preliminar de Riscos*"
                                 primaryTypographyProps={{
                                     sx: { fontSize: "0.75rem", fontWeight: "400" },
                                 }}
@@ -703,7 +703,7 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
                             sx={{ padding: "3px 10px" }}
                         >
                             <ListItemText
-                            primary="Inspeções e Auditoria"
+                            primary="Inspeções e Auditoria*"
                             primaryTypographyProps={{
                                 sx: { fontSize: "0.75rem", fontWeight: "400" },
                             }}
@@ -853,7 +853,7 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
                                 sx={{ padding: "3px 10px" }}
                                 >
                                 <ListItemText
-                                primary="Auditorias de Conformidade"
+                                primary="Auditorias de Conformidade+"
                                 primaryTypographyProps={{
                                     sx: { fontSize: "0.75rem", fontWeight: "400" },
                                 }}
@@ -872,7 +872,7 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
                                 to="/auditoria-conformidade-interna"
                                 sx={{ padding: "3px 10px" }}>
                                 <ListItemText
-                                primary="Interna"
+                                primary="Interna*"
                                 primaryTypographyProps={{
                                     sx: { fontSize: "0.75rem", fontWeight: "400" },
                                 }}

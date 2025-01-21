@@ -140,7 +140,7 @@ const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
               sx={{ padding: "4px 10px" }}
             >
               <ListItemText
-                primary="Mapeamento dos Requisitos Legais"
+                primary="Mapeamento dos Requisitos Legais*"
                 primaryTypographyProps={{
                   sx: { fontSize: "0.75rem", fontWeight: "400" },
                 }}
@@ -153,7 +153,7 @@ const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
                   sx={{ padding: "3px 10px" }}
                 >
                   <ListItemText
-                    primary="Documentos Legais"
+                    primary="Documentos Legais*"
                     primaryTypographyProps={{
                       sx: { fontSize: "0.75rem", fontWeight: "400" },
                     }}
@@ -1219,7 +1219,7 @@ const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
                             sx={{ padding: "3px 10px" }}
                         >
                             <ListItemText
-                            primary="Conrole de Riscos Ocupacionais"
+                            primary="Conrole de Riscos Ocupacionais*"
                             primaryTypographyProps={{
                                 sx: { fontSize: "0.75rem", fontWeight: "400" },
                             }}
@@ -1238,7 +1238,7 @@ const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
                                 sx={{ padding: "3px 10px" }}
                                 >
                                 <ListItemText
-                                primary="Ordem de Serviço"
+                                primary="Ordem de Serviço*"
                                 primaryTypographyProps={{
                                     sx: { fontSize: "0.75rem", fontWeight: "400" },
                                 }}
@@ -1257,7 +1257,7 @@ const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
                                 to="/ordem-servico-elaboracao"
                                 sx={{ padding: "3px 10px" }}>
                                 <ListItemText
-                                primary="Elaboração"
+                                primary="Elaboração*"
                                 primaryTypographyProps={{
                                     sx: { fontSize: "0.75rem", fontWeight: "400" },
                                 }}

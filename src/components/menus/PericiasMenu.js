@@ -85,7 +85,7 @@ const PericiasMenu = ({ isOpen, isActive, onClick }) => {
               sx={{ padding: "4px 10px" }}
             >
               <ListItemText
-                primary="Registro"
+                primary="Registro*"
                 primaryTypographyProps={{
                   sx: { fontSize: "0.75rem", fontWeight: "400" },
                 }}
@@ -114,7 +114,7 @@ const PericiasMenu = ({ isOpen, isActive, onClick }) => {
                         sx={{ padding: "4px 10px" }}
                         >
                         <ListItemText
-                            primary="Judiciais"
+                            primary="Judiciais*"
                             primaryTypographyProps={{
                             sx: { fontSize: "0.75rem", fontWeight: "400" },
                             }}
