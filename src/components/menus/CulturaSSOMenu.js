@@ -120,7 +120,7 @@ const CulturaSSOMenu = ({ isOpen, isActive, onClick }) => {
                     to="/registro-dds"
                     sx={{ padding: "3px 10px" }}>
                     <ListItemText
-                       primary="DDS / DSS"
+                       primary="DDS / DSS*"
                         primaryTypographyProps={{
                        sx: { fontSize: "0.75rem", fontWeight: "400" },
                          }}
@@ -204,7 +204,7 @@ const CulturaSSOMenu = ({ isOpen, isActive, onClick }) => {
                     to="/pesquisa-satisfacao"
                     sx={{ padding: "3px 10px" }}>
                    <ListItemText
-                      primary="Pesquisa de Satisfação"
+                      primary="Pesquisa de Satisfaçã*"
                       primaryTypographyProps={{
                       sx: { fontSize: "0.75rem", fontWeight: "400" },
                     }}

@@ -21,6 +21,7 @@ const Login = ({ onLogin }) => {
     e.preventDefault();
 
     if (username === "admin" && password === "admin") {
+      localStorage.setItem('isAuthenticated', 'true');
       onLogin(); 
     } else {
       setError("Usuário ou senha inválidos.");
