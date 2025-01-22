@@ -93,7 +93,7 @@ const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
           {isOpen && (
             <>
               <ListItemText
-                primary="Conformidade Legal"
+                primary="Conformidade Legal*"
                 primaryTypographyProps={{
                     sx: {
                         fontSize: "0.75rem",
@@ -120,7 +120,7 @@ const ConformidadeLegalMenu = ({ isOpen, isActive, onClick }) => {
               sx={{ padding: "4px 10px" }}
             >
               <ListItemText
-                primary="Requisitos Legais"
+                primary="Requisitos Legais*"
                 primaryTypographyProps={{
                   sx: { fontSize: "0.75rem", fontWeight: "400" },
                 }}

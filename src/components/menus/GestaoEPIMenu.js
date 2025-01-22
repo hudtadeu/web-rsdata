@@ -117,7 +117,7 @@ const GestaoEPIMenu = ({ isOpen, isActive, onClick }) => {
           {isOpen && (
             <>
               <ListItemText
-                primary="Gestão de EPI's"
+                primary="Gestão de EPI's*"
                 primaryTypographyProps={{ sx: { fontSize: "0.75rem", fontWeight: "500" } }}
               />
               <FontAwesomeIcon

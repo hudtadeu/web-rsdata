@@ -94,7 +94,7 @@ const PericiasMenu = ({ isOpen, isActive, onClick }) => {
           {isOpen && (
             <>
               <ListItemText
-                primary="Perícias e Demandas Judiciais"
+                primary="Perícias e Demandas Judiciais*"
                 primaryTypographyProps={{ sx: { fontSize: "0.75rem", fontWeight: "500" } }}
               />
               <FontAwesomeIcon

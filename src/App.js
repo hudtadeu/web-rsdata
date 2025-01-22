@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import TopNavbar from "./components/TopNavbar";
@@ -18,12 +18,26 @@ import JudiciaisTrabalhista from "./components/pages/JudiciaisTrabalhistas";
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [selectedMenu, setSelectedMenu] = useState({ text: "", icon: null });
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const sidebarWidth = 250;
   const sidebarMinWidth = 60;
+
+  useEffect(() => {
+    const authStatus = localStorage.getItem('isAuthenticated');
+    setIsAuthenticated(authStatus === 'true');
+  }, []);
 
   const toggleSidebar = () => {
     setIsSidebarOpen((prev) => !prev);
   };
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
+  if (!isAuthenticated) {
+    return <Login onLogin={handleLogin} />;
+  }
 
   return (
     <Router>
