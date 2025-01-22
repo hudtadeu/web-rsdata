@@ -86,7 +86,7 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu, onLogo
         >
           {isOpen ? (
             <img
-              src="/rsdata-logo.png"
+              src="/rsdata-branco-logo.png"
               alt="RS Data Logo Aberta"
               style={{
                 width: "120px",
@@ -95,7 +95,7 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu, onLogo
             />
           ) : (
             <img
-              src="/rs-logo.png"
+              src="/rs-branco-logo.png"
               alt="RS Data Logo Fechada"
               style={{
                 width: "30px",
