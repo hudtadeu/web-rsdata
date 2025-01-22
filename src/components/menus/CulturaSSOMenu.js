@@ -112,7 +112,7 @@ const CulturaSSOMenu = ({ isOpen, isActive, onClick }) => {
           {isOpen && (
             <>
               <ListItemText
-                primary="Cultura SSO"
+                primary="Cultura SSO*"
                 primaryTypographyProps={{ sx: { fontSize: "0.75rem", fontWeight: "500" } }}
               />
               <FontAwesomeIcon

@@ -78,7 +78,7 @@ const GPOMenu = ({ isOpen, isActive, onClick }) => {
           {isOpen && (
             <>
               <ListItemText
-                primary="GPO"
+                primary="GPO*"
                 primaryTypographyProps={{
                   sx: { fontSize: "0.75rem", fontWeight: "500" },
                 }}
