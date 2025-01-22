@@ -14,7 +14,6 @@ import {
   faReceipt,
 } from "@fortawesome/free-solid-svg-icons";
 
-// Reusable SubMenu component
 const SubMenu = ({ title, children, isOpen }) => {
   const [open, setOpen] = useState(false);
 

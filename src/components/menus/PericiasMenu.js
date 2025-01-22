@@ -15,7 +15,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-// Reusable SubMenu component
 const SubMenu = ({ title, children, isOpen }) => {
   const [open, setOpen] = useState(false);
 
