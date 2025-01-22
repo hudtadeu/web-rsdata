@@ -33,55 +33,77 @@ function App() {
 
   const handleLogin = () => {
     setIsAuthenticated(true);
+    localStorage.setItem('isAuthenticated', 'true');
   };
-
-  if (!isAuthenticated) {
-    return <Login onLogin={handleLogin} />;
-  }
 
   return (
     <Router>
-      <div style={{ display: "flex", height: "100vh", overflow: "hidden" }}>
-        <Navbar
-          isOpen={isSidebarOpen}
-          sidebarWidth={sidebarWidth}
-          sidebarMinWidth={sidebarMinWidth}
-          setSelectedMenu={setSelectedMenu}
+      <Routes>
+        <Route path="/" element={<Login onLogin={handleLogin} />} />
+        <Route
+          path="*"
+          element={
+            isAuthenticated ? (
+              <MainApp
+                isSidebarOpen={isSidebarOpen}
+                toggleSidebar={toggleSidebar}
+                selectedMenu={selectedMenu}
+                setSelectedMenu={setSelectedMenu}
+                sidebarWidth={sidebarWidth}
+                sidebarMinWidth={sidebarMinWidth}
+              />
+            ) : (
+              <Navigate to="/" replace />
+            )
+          }
         />
-        <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-          <TopNavbar
-            sidebarWidth={isSidebarOpen ? sidebarWidth : sidebarMinWidth}
-            isSidebarOpen={isSidebarOpen}
-            toggleSidebar={toggleSidebar}
-            selectedMenu={selectedMenu}
-          />
-          <div
-            style={{
-              flex: 1,
-              overflow: "auto",
-              marginTop: "64px",
-              padding: "16px",
-            }}
-          >
-            <Routes>
-              <Route path="/inicio" element={<Inicio />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/requisitos-legais" element={<LegalRequisitosPage />} />
-              <Route path="/ordem-servico-elaboracao" element={<OrdemServicoElaboracao />} />
-              <Route path="/analise-preliminar-riscos" element={<AnalisePreliminarRisco />} />
-              <Route path="/auditoria-conformidade-interna" element={<AuditoriaConformidadeInterna />} />
-              <Route path="/teste-aprovacao-novos-epis" element={<TesteAprovacaoNovosEpis />} />
-              <Route path="/judiciais-trabalhista" element={<JudiciaisTrabalhista />} />
-              <Route path="/judiciais-previdenciaria" element={<JudiciaisPrevidenciaria />} />
-              <Route path="/pesquisa-satisfacao" element={<PesquisaSatisfacao />} />
-              <Route path="/registro-dds" element={<RegistroDds />} />
-              <Route path="*" element={<Navigate to="/inicio" replace />} />
-            </Routes>
-          </div>
-        </div>
-      </div>
+      </Routes>
     </Router>
   );
 }
+
+const MainApp = ({ isSidebarOpen, toggleSidebar, selectedMenu, setSelectedMenu, sidebarWidth, sidebarMinWidth }) => {
+  return (
+    <div style={{ display: "flex", height: "100vh", overflow: "hidden" }}>
+      <Navbar
+        isOpen={isSidebarOpen}
+        sidebarWidth={sidebarWidth}
+        sidebarMinWidth={sidebarMinWidth}
+        setSelectedMenu={setSelectedMenu}
+      />
+      <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+        <TopNavbar
+          sidebarWidth={isSidebarOpen ? sidebarWidth : sidebarMinWidth}
+          isSidebarOpen={isSidebarOpen}
+          toggleSidebar={toggleSidebar}
+          selectedMenu={selectedMenu}
+        />
+        <div
+          style={{
+            flex: 1,
+            overflow: "auto",
+            marginTop: "64px",
+            padding: "16px",
+          }}
+        >
+          <Routes>
+            <Route path="/inicio" element={<Inicio />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/requisitos-legais" element={<LegalRequisitosPage />} />
+            <Route path="/ordem-servico-elaboracao" element={<OrdemServicoElaboracao />} />
+            <Route path="/analise-preliminar-riscos" element={<AnalisePreliminarRisco />} />
+            <Route path="/auditoria-conformidade-interna" element={<AuditoriaConformidadeInterna />} />
+            <Route path="/teste-aprovacao-novos-epis" element={<TesteAprovacaoNovosEpis />} />
+            <Route path="/judiciais-trabalhista" element={<JudiciaisTrabalhista />} />
+            <Route path="/judiciais-previdenciaria" element={<JudiciaisPrevidenciaria />} />
+            <Route path="/pesquisa-satisfacao" element={<PesquisaSatisfacao />} />
+            <Route path="/registro-dds" element={<RegistroDds />} />
+            <Route path="*" element={<Navigate to="/inicio" replace />} />
+          </Routes>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default App;
