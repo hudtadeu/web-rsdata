@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   List,
   ListItem,
@@ -15,41 +15,59 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-const SubMenu = ({ title, items, isOpen, toggleOpen }) => (
-  <>
-    <ListItem disablePadding>
-      <ListItemButton onClick={toggleOpen} sx={{ padding: "4px 10px" }}>
-        <ListItemText
-          primary={title}
-          primaryTypographyProps={{ sx: { fontSize: "0.75rem", fontWeight: "400" } }}
-        />
-        <FontAwesomeIcon
-          icon={isOpen ? faChevronDown : faChevronRight}
-          style={{ fontSize: "12px" }}
-        />
-      </ListItemButton>
-    </ListItem>
-    <Collapse in={isOpen} timeout="auto" unmountOnExit>
-      <List disablePadding sx={{ paddingLeft: "15px" }}>
-        {items.map((item, index) => (
-          <ListItem disablePadding key={index}>
-            <ListItemButton component={item.link ? Link : "div"} to={item.link || "#"} sx={{ padding: "3px 10px" }}>
-              <ListItemText
-                primary={item.label}
-                primaryTypographyProps={{ sx: { fontSize: "0.75rem", fontWeight: "400" } }}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Collapse>
-  </>
-);
+const SubMenu = ({ title, items, isOpen, toggleOpen }) => {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setOpen(false);
+    }
+  }, [isOpen]);
+
+  return (
+    <>
+      <ListItem disablePadding>
+        <ListItemButton onClick={() => setOpen(!open)} sx={{ padding: "4px 10px" }}>
+          <ListItemText
+            primary={title}
+            primaryTypographyProps={{ sx: { fontSize: "0.75rem", fontWeight: "400" } }}
+          />
+          <FontAwesomeIcon
+            icon={open ? faChevronDown : faChevronRight}
+            style={{ fontSize: "12px" }}
+          />
+        </ListItemButton>
+      </ListItem>
+      <Collapse in={open} timeout="auto" unmountOnExit>
+        <List disablePadding sx={{ paddingLeft: "15px" }}>
+          {items.map((item, index) => (
+            <ListItem disablePadding key={index}>
+              <ListItemButton component={item.link ? Link : "div"} to={item.link || "#"} sx={{ padding: "3px 10px" }}>
+                <ListItemText
+                  primary={item.label}
+                  primaryTypographyProps={{ sx: { fontSize: "0.75rem", fontWeight: "400" } }}
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Collapse>
+    </>
+  );
+};
 
 const GestaoEPIMenu = ({ isOpen, isActive, onClick }) => {
   const [openSubmenu, setOpenSubmenu] = useState(false);
   const [openMonitoramentoEPIs, setOpenMonitoramentoEPIs] = useState(false);
   const [openPro, setOpenPro] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setOpenSubmenu(false);
+      setOpenMonitoramentoEPIs(false);
+      setOpenPro(false);
+    }
+  }, [isOpen]);
 
   const monitoramentoEPIsItems = [
     { label: "Entrega e Devolução dos EPIs" },

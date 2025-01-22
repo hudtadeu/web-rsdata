@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   List,
   ListItem,
@@ -16,8 +16,14 @@ import {
 import { Link } from "react-router-dom";
 
 // Reusable SubMenu component
-const SubMenu = ({ title, children }) => {
+const SubMenu = ({ title, children, isOpen }) => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setOpen(false);
+    }
+  }, [isOpen]);
 
   return (
     <>
@@ -44,6 +50,12 @@ const SubMenu = ({ title, children }) => {
 
 const PericiasMenu = ({ isOpen, isActive, onClick }) => {
   const [openSubmenu, setOpenSubmenu] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setOpenSubmenu(false);
+    }
+  }, [isOpen]);
 
   return (
     <List disablePadding>
@@ -96,7 +108,7 @@ const PericiasMenu = ({ isOpen, isActive, onClick }) => {
       </ListItem>
       <Collapse in={openSubmenu && isOpen} timeout="auto" unmountOnExit>
         <List disablePadding sx={{ paddingLeft: "15px" }}>
-          <SubMenu title="Registro*">
+          <SubMenu title="Registro*" isOpen={isOpen}>
             <ListItem disablePadding>
               <ListItemButton sx={{ padding: "3px 10px" }}>
                 <ListItemText
@@ -105,7 +117,7 @@ const PericiasMenu = ({ isOpen, isActive, onClick }) => {
                 />
               </ListItemButton>
             </ListItem>
-            <SubMenu title="Judiciais*">
+            <SubMenu title="Judiciais*" isOpen={isOpen}>
               <ListItem disablePadding>
                 <ListItemButton component={Link} to="/judiciais-trabalhista" sx={{ padding: "3px 10px" }}>
                   <ListItemText

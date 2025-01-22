@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   List,
   ListItem,
@@ -15,8 +15,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 // Reusable SubMenu component
-const SubMenu = ({ title, children }) => {
+const SubMenu = ({ title, children, isOpen }) => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setOpen(false);
+    }
+  }, [isOpen]);
 
   return (
     <>
@@ -43,6 +49,12 @@ const SubMenu = ({ title, children }) => {
 
 const TributacaoSSOMenu = ({ isOpen, isActive, onClick }) => {
   const [openSubmenu, setOpenSubmenu] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setOpenSubmenu(false);
+    }
+  }, [isOpen]);
 
   return (
     <List disablePadding>
@@ -103,7 +115,7 @@ const TributacaoSSOMenu = ({ isOpen, isActive, onClick }) => {
               />
             </ListItemButton>
           </ListItem>
-          <SubMenu title="FAP">
+          <SubMenu title="FAP" isOpen={isOpen}>
             <ListItem disablePadding>
               <ListItemButton sx={{ padding: "3px 10px" }}>
                 <ListItemText
@@ -153,7 +165,7 @@ const TributacaoSSOMenu = ({ isOpen, isActive, onClick }) => {
               />
             </ListItemButton>
           </ListItem>
-          <SubMenu title="Diagnóstico">
+          <SubMenu title="Diagnóstico" isOpen={isOpen}>
             <ListItem disablePadding>
               <ListItemButton sx={{ padding: "3px 10px" }}>
                 <ListItemText

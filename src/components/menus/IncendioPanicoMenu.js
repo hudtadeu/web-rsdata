@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   List,
   ListItem,
@@ -14,8 +14,14 @@ import {
   faFireExtinguisher,
 } from "@fortawesome/free-solid-svg-icons";
 
-const SubMenu = ({ title, children }) => {
+const SubMenu = ({ title, children, isOpen }) => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setOpen(false);
+    }
+  }, [isOpen]);
 
   return (
     <>
@@ -42,6 +48,12 @@ const SubMenu = ({ title, children }) => {
 
 const IncendioPanicoMenu = ({ isOpen, isActive, onClick }) => {
   const [openSubmenu, setOpenSubmenu] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setOpenSubmenu(false);
+    }
+  }, [isOpen]);
 
   return (
     <List disablePadding>
@@ -94,7 +106,7 @@ const IncendioPanicoMenu = ({ isOpen, isActive, onClick }) => {
       </ListItem>
       <Collapse in={openSubmenu && isOpen} timeout="auto" unmountOnExit>
         <List disablePadding sx={{ paddingLeft: "15px" }}>
-          <SubMenu title="Documentação">
+          <SubMenu title="Documentação" isOpen={isOpen}>
             <ListItem disablePadding>
               <ListItemButton sx={{ padding: "3px 10px" }}>
                 <ListItemText
@@ -120,7 +132,7 @@ const IncendioPanicoMenu = ({ isOpen, isActive, onClick }) => {
               </ListItemButton>
             </ListItem>
           </SubMenu>
-          <SubMenu title="Monitoramento">
+          <SubMenu title="Monitoramento" isOpen={isOpen}>
             <ListItem disablePadding>
               <ListItemButton sx={{ padding: "3px 10px" }}>
                 <ListItemText
@@ -129,7 +141,7 @@ const IncendioPanicoMenu = ({ isOpen, isActive, onClick }) => {
                 />
               </ListItemButton>
             </ListItem>
-            <SubMenu title="Brigada de Emergência">
+            <SubMenu title="Brigada de Emergência" isOpen={isOpen}>
               <ListItem disablePadding>
                 <ListItemButton sx={{ padding: "3px 10px" }}>
                   <ListItemText
@@ -155,7 +167,7 @@ const IncendioPanicoMenu = ({ isOpen, isActive, onClick }) => {
                 </ListItemButton>
               </ListItem>
             </SubMenu>
-            <SubMenu title="Equipamentos de Combate a Incêndio e Pânico">
+            <SubMenu title="Equipamentos de Combate a Incêndio e Pânico" isOpen={isOpen}>
               <ListItem disablePadding>
                 <ListItemButton sx={{ padding: "3px 10px" }}>
                   <ListItemText
