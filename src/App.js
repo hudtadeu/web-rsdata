@@ -2,18 +2,13 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import TopNavbar from "./components/TopNavbar";
-import Inicio from "./components/dashboard/Inicio";
-import Dashboard from "./components/indicadores/Dashboard";
+import Dashboard from "./components/dashboard/Dashboard";
+import Inspecoes from "./components/pages/Inspecoes";
+import AgendaInspecoes from "./components/pages/AgendaInspecoes";
+import PlanoAcao from "./components/pages/PlanoAcao";
+import ControleEquipamentos from "./components/pages/ControleEquipamentos";
+import ArmazenamentoDocumentos from "./components/pages/ArmazenamentoDocumentos";
 import Login from "./components/login/Login";
-import LegalRequisitosPage from "./components/pages/LegaisRequisitosPage";
-import OrdemServicoElaboracao from "./components/pages/OrdemServicoElaboracao";
-import AnalisePreliminarRisco from "./components/pages/AnalisePreliminarRisco";
-import AuditoriaConformidadeInterna from "./components/pages/AuditoriaConformidadeInterna";
-import TesteAprovacaoNovosEpis from "./components/pages/TesteAprovacaoNovosEpis";
-import RegistroDds from "./components/pages/RegistroDds";
-import PesquisaSatisfacao from "./components/pages/PesquisaSatisfacao";
-import JudiciaisPrevidenciaria from "./components/pages/JudiciaisPrevidenciaria";
-import JudiciaisTrabalhista from "./components/pages/JudiciaisTrabalhistas";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -67,17 +62,12 @@ function App() {
                 />
               ) : (
                 <>
-                  <Route path="/inicio" element={<Inicio />} />
                   <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/requisitos-legais" element={<LegalRequisitosPage />} />
-                  <Route path="/ordem-servico-elaboracao" element={<OrdemServicoElaboracao />} />
-                  <Route path="/analise-preliminar-riscos" element={<AnalisePreliminarRisco />} />
-                  <Route path="/auditoria-conformidade-interna" element={<AuditoriaConformidadeInterna />} />
-                  <Route path="/teste-aprovacao-novos-epis" element={<TesteAprovacaoNovosEpis />} />
-                  <Route path="/judiciais-trabalhista" element={<JudiciaisTrabalhista />} />
-                  <Route path="/judiciais-previdenciaria" element={<JudiciaisPrevidenciaria />} />
-                  <Route path="/pesquisa-satisfacao" element={<PesquisaSatisfacao />} />
-                  <Route path="/registro-dds" element={<RegistroDds />} />
+                  <Route path="/inspecoes" element={<Inspecoes />} />
+                  <Route path="/agenda-inspecoes" element={<AgendaInspecoes />} />
+                  <Route path="/plano-acao" element={<PlanoAcao />} />
+                  <Route path="/controle-equipamentos" element={<ControleEquipamentos />} />
+                  <Route path="/armazenamento-documentos" element={<ArmazenamentoDocumentos />} />
                   <Route path="*" element={<Navigate to="/inicio" replace />} />
                 </>
               )}

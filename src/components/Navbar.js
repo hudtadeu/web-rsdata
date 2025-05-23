@@ -11,28 +11,26 @@ import {
 } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faHome,
   faSignOutAlt,
-  faChevronDown,
+  faClipboardList,
+  faCalendarAlt,
+  faTasks,
+  faToolbox,
+  faFolderOpen,
   faBarChart,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import ConformidadeLegalMenu from "./menus/ConformidadeLegalMenu";
-import GPOMenu from "./menus/GPOMenu";
-import GestaoEPIMenu from "./menus/GestaoEPIMenu";
-import IncendioPanicoMenu from "./menus/IncendioPanicoMenu";
-import CulturaSSOMenu from "./menus/CulturaSSOMenu";
-import PericiasMenu from "./menus/PericiasMenu";
-import TributacaoSSOMenu from "./menus/TributacaoSSOMenu";
-import ContratadasMenu from "./menus/ContratadasMenu";
-import HOMenu from "./menus/HOMenu";
 
 const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu, onLogout }) => {
   const [activeMenu, setActiveMenu] = useState(null); 
 
   const menuItems = [
-    { id: "inicio", text: "Início", icon: faHome, link: "/inicio" },
     { id: "dashboard", text: "Dashboard", icon: faBarChart, link: "/dashboard" },
+    { id: "inspecoes", text: "Inspeções de Campo", icon: faClipboardList, link: "/inspecoes" },
+    { id: "agenda", text: "Cronograma de inspeções", icon: faCalendarAlt, link: "/agenda-inspecoes" },
+    { id: "planoacao", text: "Plano de Ação", icon: faTasks, link: "/plano-acao" },
+    { id: "controlequip", text: "Controle de Equipamentos", icon: faToolbox, link: "/controle-equipamentos" },
+    { id: "armazenamento", text: "Armazenamento de Documentos", icon: faFolderOpen, link: "/armazenamento-documentos" },
   ];
 
   const handleMenuClick = (menuId) => {
@@ -170,52 +168,6 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu, onLogo
               </ListItemButton>
             </ListItem>
           ))}
-          {/* Menus Adicionais */}
-          <ConformidadeLegalMenu
-            isOpen={isOpen}
-            isActive={activeMenu === "conformidadeLegal"}
-            onClick={() => handleMenuClick("conformidadeLegal")}
-          />
-          <GPOMenu
-            isOpen={isOpen}
-            isActive={activeMenu === "gpo"}
-            onClick={() => handleMenuClick("gpo")}
-          />
-          <GestaoEPIMenu
-            isOpen={isOpen}
-            isActive={activeMenu === "gestaoEPI"}
-            onClick={() => handleMenuClick("gestaoEPI")}
-          />
-          <IncendioPanicoMenu
-            isOpen={isOpen}
-            isActive={activeMenu === "incendioPanico"}
-            onClick={() => handleMenuClick("incendioPanico")}
-          />
-          <HOMenu
-            isOpen={isOpen}
-            isActive={activeMenu === "ho"}
-            onClick={() => handleMenuClick("ho")}
-          />
-          <CulturaSSOMenu
-            isOpen={isOpen}
-            isActive={activeMenu === "culturaSSO"}
-            onClick={() => handleMenuClick("culturaSSO")}
-          />
-          <PericiasMenu
-            isOpen={isOpen}
-            isActive={activeMenu === "pericias"}
-            onClick={() => handleMenuClick("pericias")}
-          />
-           <ContratadasMenu
-            isOpen={isOpen}
-            isActive={activeMenu === "contratadas"}
-            onClick={() => handleMenuClick("contratadas")}
-          />
-          <TributacaoSSOMenu
-            isOpen={isOpen}
-            isActive={activeMenu === "tributacaoSSO"}
-            onClick={() => handleMenuClick("tributacaoSSO")}
-          />
         </List>
       </Box>
 
