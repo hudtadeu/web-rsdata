@@ -19,7 +19,7 @@ const TopNavbar = ({ sidebarWidth, isSidebarOpen, toggleSidebar, selectedMenu })
         <IconButton
           onClick={toggleSidebar}
           sx={{
-            color: "#0098c9",
+            color: "#3C8DBC",
             mr: 2,
             fontSize: "1.2rem",
           }}
@@ -40,14 +40,14 @@ const TopNavbar = ({ sidebarWidth, isSidebarOpen, toggleSidebar, selectedMenu })
               icon={selectedMenu.icon}
               style={{
                 fontSize: "0.8em",
-                color: "#0098c9",
+                color: "#3C8DBC",
               }}
             />
           )}
           <Typography
             variant="h6"
             sx={{
-              color: "#0098c9",
+              color: "#3C8DBC",
               fontSize: "1rem",
               overflow: "hidden",
               textOverflow: "ellipsis",
@@ -57,7 +57,7 @@ const TopNavbar = ({ sidebarWidth, isSidebarOpen, toggleSidebar, selectedMenu })
             {selectedMenu.text}
           </Typography>
         </Box>
-        <IconButton sx={{ color: "#0098c9", fontSize: "1.2rem" }}>
+        <IconButton sx={{ color: "#3C8DBC", fontSize: "1.2rem" }}>
           <FontAwesomeIcon icon={faUserCircle} />
         </IconButton>
       </Toolbar>

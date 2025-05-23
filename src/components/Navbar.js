@@ -30,7 +30,7 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu, onLogo
     { id: "agenda", text: "Cronograma de inspeções", icon: faCalendarAlt, link: "/agenda-inspecoes" },
     { id: "planoacao", text: "Plano de Ação", icon: faTasks, link: "/plano-acao" },
     { id: "controlequip", text: "Controle de Equipamentos", icon: faToolbox, link: "/controle-equipamentos" },
-    { id: "armazenamento", text: "Armazenamento de Documentos", icon: faFolderOpen, link: "/armazenamento-documentos" },
+    { id: "armazenamento", text: "Documentos", icon: faFolderOpen, link: "/armazenamento-documentos" },
   ];
 
   const handleMenuClick = (menuId) => {
@@ -48,7 +48,7 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu, onLogo
         "& .MuiDrawer-paper": {
           width: isOpen ? sidebarWidth : sidebarMinWidth,
           boxSizing: "border-box",
-          backgroundColor: "#0098c9",
+          backgroundColor: "#3C8DBC",
           color: "#fff",
           borderRadius: "0px 10px 10px 0px",
           boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
@@ -59,11 +59,11 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu, onLogo
             width: "8px",
           },
           "&::-webkit-scrollbar-thumb": {
-            backgroundColor: "#0078a3",
+            backgroundColor: "#3C8DBC",
             borderRadius: "10px",
           },
           "&::-webkit-scrollbar-thumb:hover": {
-            backgroundColor: "#005f73",
+            backgroundColor: "#3C8DBC",
           },
           "&::-webkit-scrollbar-track": {
             backgroundColor: "#e0f7fa",
@@ -127,19 +127,19 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu, onLogo
                   justifyContent: isOpen ? "flex-start" : "center",
                   padding: isOpen ? "4px" : "4px",
                   backgroundColor: activeMenu === item.id ? "#e0f7fa" : "transparent",
-                  color: activeMenu === item.id ? "#0078a3" : "#fff",
+                  color: activeMenu === item.id ? "#3C8DBC" : "#fff",
                   "&:hover": {
                     backgroundColor: "#e0f7fa",
-                    color: "#0078a3",
+                    color: "#3C8DBC",
                     "& .MuiListItemIcon-root": {
-                      color: "#0078a3",
+                      color: "#3C8DBC",
                     },
                   },
                 }}
               >
                 <ListItemIcon
                   sx={{
-                    color: activeMenu === item.id ? "#0078a3" : "#fff",
+                    color: activeMenu === item.id ? "#3C8DBC" : "#fff",
                     justifyContent: "center",
                     minWidth: "auto",
                     fontSize: isOpen ? "0.85rem" : "0.85rem",
@@ -187,10 +187,10 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu, onLogo
               padding: "4px 8px",
               "&:hover": {
                 backgroundColor: "#e0f7fa",
-                color: "#0078a3",
+                color: "#3C8DBC",
               },
               "&:hover .MuiListItemIcon-root": {
-                color: "#0078a3",
+                color: "#3C8DBC",
               },
             }}
           >
