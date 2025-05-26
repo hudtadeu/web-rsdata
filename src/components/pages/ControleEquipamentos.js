@@ -25,40 +25,40 @@ const ControleEquipamentos = () => {
   const [equipamentos, setEquipamentos] = useState([
     {
       id: 1,
-      descricao: 'Capacete de Segurança',
-      tipo: 'EPI',
-      lote: 'LOTE-2023-001',
-      prazoVencimento: '2023-12-31',
-      quantidade: 50,
-      status: 'Vencido'
+      descricao: 'Revisão de freios do veículo',
+      tipo: 'Revisão de Carro',
+      lote: 'REV-2024-001',
+      prazoVencimento: '2024-08-15',
+      quantidade: 1,
+      status: 'Menor que 60 dias'
     },
     {
       id: 2,
-      descricao: 'Óculos de Proteção',
-      tipo: 'EPI',
-      lote: 'LOTE-2023-002',
-      prazoVencimento: '2024-06-15',
-      quantidade: 30,
-      status: 'Menor que 60 dias'
+      descricao: 'Teste de pressão do hidrante principal',
+      tipo: 'Hidrantes',
+      lote: 'HID-2024-002',
+      prazoVencimento: '2024-07-10',
+      quantidade: 2,
+      status: 'Menor que 30 dias'
     },
     {
       id: 3,
-      descricao: 'Botina de Segurança',
-      tipo: 'EPI',
-      lote: 'LOTE-2024-001',
-      prazoVencimento: '2024-11-20',
-      quantidade: 25,
-      status: 'Menor que 60 dias'
+      descricao: 'Inspeção de sensores de emergência',
+      tipo: 'Dispositivos NR-12',
+      lote: 'NR12-2024-003',
+      prazoVencimento: '2024-12-01',
+      quantidade: 5,
+      status: 'Acima de 60 dias'
     },
     {
       id: 4,
-      descricao: 'Extintor de Incêndio',
-      tipo: 'Equipamento',
-      lote: 'LOTE-2024-003',
-      prazoVencimento: '2024-03-10',
+      descricao: 'Verificação de extintores',
+      tipo: 'Hidrantes',
+      lote: 'EXT-2024-004',
+      prazoVencimento: '2024-05-20',
       quantidade: 10,
-      status: 'Menor que 30 dias'
-    },
+      status: 'Vencido'
+    }
   ]);
 
   const [openDialog, setOpenDialog] = useState(false);
@@ -134,11 +134,18 @@ const ControleEquipamentos = () => {
 
   // Tipos de equipamentos
   const tiposEquipamentos = [
+    'Revisão de Carro',
+    'Hidrantes',
+    'Dispositivos NR-12',
+    'Extintores',
+    'Sinalização de Segurança',
+    'Kit de Primeiros Socorros',
+    'Treinamento de Evacuação',
+    'Inspeção de Escadas',
+    'Iluminação de Emergência',
     'EPI',
-    'Equipamento',
-    'Ferramenta',
-    'Sinalização',
-    'Primeiros Socorros'
+    'Detector de Fumaça',
+    'Chuveiro de Emergência'
   ];
 
   // Cores para status

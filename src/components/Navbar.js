@@ -18,15 +18,28 @@ import {
   faToolbox,
   faFolderOpen,
   faBarChart,
+  faChevronDown,
+  faChevronUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu, onLogout }) => {
   const [activeMenu, setActiveMenu] = useState(null); 
+  const [openInspecoes, setOpenInspecoes] = useState(false);
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
 
   const menuItems = [
     { id: "dashboard", text: "Dashboard", icon: faBarChart, link: "/dashboard" },
-    { id: "inspecoes", text: "Inspeções de Campo", icon: faClipboardList, link: "/inspecoes" },
+    {
+      id: "inspecoes",
+      text: "Inspeções",
+      icon: faClipboardList,
+      submenus: [
+        { id: "inspecoes-campo", text: "Inspeções de Campo", link: "/inspecoes" },
+        { id: "dss-emociograma", text: "DSS Emociograma", link: "/dss-emociograma" },
+        { id: "ordem-servico", text: "Ordem de Serviço", link: "/ordem-servico" }
+      ]
+    },
     { id: "agenda", text: "Cronograma de inspeções", icon: faCalendarAlt, link: "/agenda-inspecoes" },
     { id: "planoacao", text: "Plano de Ação", icon: faTasks, link: "/plano-acao" },
     { id: "controlequip", text: "Controle de Equipamentos", icon: faToolbox, link: "/controle-equipamentos" },
@@ -34,7 +47,10 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu, onLogo
   ];
 
   const handleMenuClick = (menuId) => {
-    setActiveMenu(menuId); 
+    setActiveMenu(menuId);
+    if (menuId === "inspecoes") setOpenInspecoes((prev) => !prev);
+    else setOpenInspecoes(false);
+    setActiveSubMenu(null); // limpa seleção de submenu ao trocar menu principal
   };
 
   return (
@@ -106,67 +122,163 @@ const Navbar = ({ isOpen, sidebarWidth, sidebarMinWidth, setSelectedMenu, onLogo
         {/* Menu */}
         <List>
           {menuItems.map((item) => (
-            <ListItem
-              key={item.id}
-              disablePadding
-              sx={{
-                justifyContent: isOpen ? "flex-start" : "center",
-                padding: isOpen ? "4px 15px" : "5px 10px",
-                marginBottom: isOpen ? "0px" : "5px",
-              }}
-            >
-              <ListItemButton
-                component={Link}
-                to={item.link}
-                onClick={() => {
-                  handleMenuClick(item.id);
-                  setSelectedMenu({ text: item.text, icon: item.icon });
-                }}
+            <React.Fragment key={item.id}>
+              <ListItem
+                disablePadding
                 sx={{
-                  borderRadius: isOpen ? "4px" : "5px",
                   justifyContent: isOpen ? "flex-start" : "center",
-                  padding: isOpen ? "4px" : "4px",
-                  backgroundColor: activeMenu === item.id ? "#e0f7fa" : "transparent",
-                  color: activeMenu === item.id ? "#3C8DBC" : "#fff",
-                  "&:hover": {
-                    backgroundColor: "#e0f7fa",
-                    color: "#3C8DBC",
-                    "& .MuiListItemIcon-root": {
-                      color: "#3C8DBC",
-                    },
-                  },
+                  padding: isOpen ? "4px 15px" : "5px 10px",
+                  marginBottom: isOpen ? "0px" : "5px",
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    color: activeMenu === item.id ? "#3C8DBC" : "#fff",
-                    justifyContent: "center",
-                    minWidth: "auto",
-                    fontSize: isOpen ? "0.85rem" : "0.85rem",
-                    marginRight: isOpen ? "8px" : "0px",
-                  }}
-                >
-                  <FontAwesomeIcon icon={item.icon} />
-                </ListItemIcon>
-                {isOpen && (
-                  <ListItemText
-                    primary={item.text}
-                    primaryTypographyProps={{
-                      sx: {
-                        fontSize: "0.75rem",
-                        fontWeight: "500",
-                        color: "inherit",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        display: "-webkit-box",
-                        WebkitLineClamp: 1,
-                        WebkitBoxOrient: "vertical",
+                {item.submenus ? (
+                  <ListItemButton
+                    onClick={() => handleMenuClick(item.id)}
+                    sx={{
+                      borderRadius: isOpen ? "4px" : "5px",
+                      justifyContent: isOpen ? "flex-start" : "center",
+                      padding: isOpen ? "4px" : "4px",
+                      backgroundColor: activeMenu === item.id ? "#e0f7fa" : "transparent",
+                      color: activeMenu === item.id ? "#3C8DBC" : "#fff",
+                      "&:hover": {
+                        backgroundColor: "#e0f7fa",
+                        color: "#3C8DBC",
+                        "& .MuiListItemIcon-root": {
+                          color: "#3C8DBC",
+                        },
                       },
                     }}
-                  />
+                  >
+                    <ListItemIcon
+                      sx={{
+                        color: activeMenu === item.id ? "#3C8DBC" : "#fff",
+                        justifyContent: "center",
+                        minWidth: "auto",
+                        fontSize: isOpen ? "0.85rem" : "0.85rem",
+                        marginRight: isOpen ? "8px" : "0px",
+                      }}
+                    >
+                      <FontAwesomeIcon icon={item.icon} />
+                    </ListItemIcon>
+                    {isOpen && (
+                      <>
+                        <ListItemText
+                          primary={item.text}
+                          primaryTypographyProps={{
+                            sx: {
+                              fontSize: "0.75rem",
+                              fontWeight: "500",
+                              color: "inherit",
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                              display: "-webkit-box",
+                              WebkitLineClamp: 1,
+                              WebkitBoxOrient: "vertical",
+                            },
+                          }}
+                        />
+                        <FontAwesomeIcon
+                          icon={openInspecoes ? faChevronUp : faChevronDown}
+                          style={{ marginLeft: 8, fontSize: "0.7rem" }}
+                        />
+                      </>
+                    )}
+                  </ListItemButton>
+                ) : (
+                  <ListItemButton
+                    component={Link}
+                    to={item.link}
+                    onClick={() => {
+                      handleMenuClick(item.id);
+                      setSelectedMenu({ text: item.text, icon: item.icon });
+                    }}
+                    sx={{
+                      borderRadius: isOpen ? "4px" : "5px",
+                      justifyContent: isOpen ? "flex-start" : "center",
+                      padding: isOpen ? "4px" : "4px",
+                      backgroundColor: activeMenu === item.id ? "#e0f7fa" : "transparent",
+                      color: activeMenu === item.id ? "#3C8DBC" : "#fff",
+                      "&:hover": {
+                        backgroundColor: "#e0f7fa",
+                        color: "#3C8DBC",
+                        "& .MuiListItemIcon-root": {
+                          color: "#3C8DBC",
+                        },
+                      },
+                    }}
+                  >
+                    <ListItemIcon
+                      sx={{
+                        color: activeMenu === item.id ? "#3C8DBC" : "#fff",
+                        justifyContent: "center",
+                        minWidth: "auto",
+                        fontSize: isOpen ? "0.85rem" : "0.85rem",
+                        marginRight: isOpen ? "8px" : "0px",
+                      }}
+                    >
+                      <FontAwesomeIcon icon={item.icon} />
+                    </ListItemIcon>
+                    {isOpen && (
+                      <ListItemText
+                        primary={item.text}
+                        primaryTypographyProps={{
+                          sx: {
+                            fontSize: "0.75rem",
+                            fontWeight: "500",
+                            color: "inherit",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            display: "-webkit-box",
+                            WebkitLineClamp: 1,
+                            WebkitBoxOrient: "vertical",
+                          },
+                        }}
+                      />
+                    )}
+                  </ListItemButton>
                 )}
-              </ListItemButton>
-            </ListItem>
+              </ListItem>
+              {/* Submenus de Inspeções */}
+              {item.submenus && openInspecoes && activeMenu === "inspecoes" && isOpen && (
+                <Box sx={{ pl: 4 }}>
+                  {item.submenus.map((sub) => (
+                    <ListItemButton
+                      key={sub.id}
+                      component={Link}
+                      to={sub.link}
+                      onClick={() => {
+                        setSelectedMenu({ text: sub.text, icon: item.icon });
+                        setActiveSubMenu(sub.id); // apenas seta o submenu ativo
+                        // não altera activeMenu nem openInspecoes
+                      }}
+                      sx={{
+                        borderRadius: "4px",
+                        fontSize: "0.7rem",
+                        color: activeSubMenu === sub.id ? "#3C8DBC" : "#fff",
+                        backgroundColor: activeSubMenu === sub.id ? "#e0f7fa" : "transparent",
+                        ml: 1,
+                        mb: 0.5,
+                        "&:hover": {
+                          backgroundColor: "#e0f7fa",
+                          color: "#3C8DBC",
+                        },
+                      }}
+                    >
+                      <ListItemText
+                        primary={sub.text}
+                        primaryTypographyProps={{
+                          sx: {
+                            fontSize: "0.7rem",
+                            fontWeight: "400",
+                            color: "inherit",
+                          },
+                        }}
+                      />
+                    </ListItemButton>
+                  ))}
+                </Box>
+              )}
+            </React.Fragment>
           ))}
         </List>
       </Box>

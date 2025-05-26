@@ -9,6 +9,8 @@ import PlanoAcao from "./components/pages/PlanoAcao";
 import ControleEquipamentos from "./components/pages/ControleEquipamentos";
 import ArmazenamentoDocumentos from "./components/pages/ArmazenamentoDocumentos";
 import Login from "./components/login/Login";
+import DssEmociograma from "./components/pages/DssEmociograma";
+import OrdemServico from "./components/pages/OrdemServico";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -64,6 +66,8 @@ function App() {
                 <>
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/inspecoes" element={<Inspecoes />} />
+                  <Route path="/dss-emociograma" element={<DssEmociograma />} />
+                  <Route path="/ordem-servico" element={<OrdemServico />} />
                   <Route path="/agenda-inspecoes" element={<AgendaInspecoes />} />
                   <Route path="/plano-acao" element={<PlanoAcao />} />
                   <Route path="/controle-equipamentos" element={<ControleEquipamentos />} />
