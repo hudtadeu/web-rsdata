@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Box, Card, CardContent, Typography, TextField, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState("");
@@ -7,6 +8,7 @@ const Login = ({ onLogin }) => {
   const [error, setError] = useState("");
 
   const passwordRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleKeyDown = (e, ref) => {
     if (e.key === "Enter") {
@@ -23,6 +25,7 @@ const Login = ({ onLogin }) => {
     if (username === "admin" && password === "admin") {
       localStorage.setItem('isAuthenticated', 'true');
       onLogin(); 
+      navigate("/dashboard"); // Redireciona para o Dashboard após login
     } else {
       setError("Usuário ou senha inválidos.");
     }
